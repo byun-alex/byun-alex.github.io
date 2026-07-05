@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>content-factory - Alex Byun</title>
+<meta name="description" content="One AI orchestrator, four tools, a finished video at the end. Claude drives music, visuals and FFmpeg through a single pipeline.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<div class="glow-field" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+</div>
+
+<nav class="site-nav" id="site-nav">
+  <div class="container">
+    <a class="brand" href="../index.html#home">Alex Byun</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home">Home</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#process">Process</a></li>
+      <li><a class="active" href="../index.html#portfolio">Portfolio</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="detail-main">
+  <div class="container">
+    <a class="back-link" href="../index.html#portfolio">&larr; Back to portfolio</a>
+
+    <article class="project">
+      <p class="project-kicker reveal">content-factory</p>
+      <h1 class="reveal">One AI orchestrator, four tools, a finished video at the end.</h1>
+      <p class="project-value reveal">Claude drives music generation, visuals and FFmpeg assembly through a single documented pipeline, with human approval gates exactly where taste matters.</p>
+      <figure class="project-visual reveal">
+        <div class="pipeline" role="img" aria-label="Pipeline diagram: prompt pack, then generation of songs and visuals, then human gate one, then FFmpeg assembly, then human gate two, then published video">
+          <div class="pipe-step">prompt pack</div>
+          <div class="pipe-arrow" aria-hidden="true">&darr;</div>
+          <div class="pipe-row">
+            <div class="pipe-step">songs<span>Suno via Composio MCP</span></div>
+            <div class="pipe-step">visual loops<span>Higgsfield API</span></div>
+          </div>
+          <div class="pipe-arrow" aria-hidden="true">&darr;</div>
+          <div class="pipe-step pipe-gate">human gate 1 · take approval</div>
+          <div class="pipe-arrow" aria-hidden="true">&darr;</div>
+          <div class="pipe-step">FFmpeg assembly<span>crossfades + loops to runtime</span></div>
+          <div class="pipe-arrow" aria-hidden="true">&darr;</div>
+          <div class="pipe-step pipe-gate">human gate 2 · final approval</div>
+          <div class="pipe-arrow" aria-hidden="true">&darr;</div>
+          <div class="pipe-step pipe-final">published long-form video</div>
+        </div>
+      </figure>
+      <div class="project-body">
+        <p class="reveal">An end-to-end engine for faceless ambient and lofi channels. One shared pipeline runs multiple channels, each with its own locked style guide, so adding a channel is configuration, not a rewrite. Every published asset is traceable through run logs and consistent naming.</p>
+        <ul class="skills reveal" aria-label="Skills this project proves">
+          <li>MCP tool wiring</li><li>multi-tool orchestration</li><li>FFmpeg</li><li>human-in-the-loop design</li><li>process documentation</li>
+        </ul>
+        <p class="depth reveal"><span class="depth-tag">multi-week build</span></p>
+        <p class="honest reveal"><strong>What it actually took.</strong> The hard part was resisting full automation. Early versions tried to automate the take-selection step and the output got worse, because taste is the one layer a pipeline cannot fake. The two approval gates are a design decision, not missing code. Wiring four tools that were never meant to talk to each other taught me more about integration failure modes than any tutorial.</p>
+        <p class="project-links reveal"><a href="https://github.com/byun-alex/content-factory" target="_blank" rel="noopener">github.com/byun-alex/content-factory &rarr;</a></p>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p><a href="../index.html#portfolio">&larr; Back to portfolio</a> · Designed and built with Claude.</p>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>

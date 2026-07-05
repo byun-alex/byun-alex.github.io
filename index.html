@@ -9,187 +9,119 @@
 </head>
 <body>
 
-<!-- ======================= HERO ======================= -->
-<header class="hero">
-  <div class="container">
-    <p class="hero-kicker reveal">Alex Byun · Sydney</p>
-    <h1 class="reveal">Final-year CS student obsessed with what AI can actually do.</h1>
-    <p class="hero-sub reveal">I build AI-augmented tools and agentic workflows, then use them every day. Some of it ships. All of it is real.</p>
-    <nav class="hero-links reveal" aria-label="Contact">
-      <a class="btn btn-primary" href="mailto:kimjay2288@gmail.com">Email me</a>
-      <a class="btn" href="https://github.com/byun-alex" target="_blank" rel="noopener">GitHub</a>
-      <a class="btn" href="https://x.com/MauJhn52270" target="_blank" rel="noopener">X (build log)</a>
-      <a class="btn" href="Alex-Byun-Resume.pdf" download>Resume</a>
-    </nav>
-  </div>
-</header>
+<div class="glow-field" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
 
-<!-- ======================= PROJECTS ======================= -->
+<!-- ======================= NAV ======================= -->
+<nav class="site-nav" id="site-nav">
+  <div class="container">
+    <a class="brand" href="#home">Alex Byun</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home" data-view="home">Home</a></li>
+      <li><a href="#about" data-view="about">About</a></li>
+      <li><a href="#process" data-view="process">Process</a></li>
+      <li><a href="#portfolio" data-view="portfolio">Portfolio</a></li>
+      <li><a href="#contact" data-view="contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
 <main>
-<section class="section-intro">
-  <div class="container">
-    <h2 class="reveal">Things I built.</h2>
-    <p class="reveal">Proof over credentials. Each of these is public code or a working system on my machine, presented with an honest note on what it took to build.</p>
-  </div>
-</section>
 
-<!-- Brain Dashboard -->
-<section class="project" id="brain-dashboard">
+<!-- ======================= HOME ======================= -->
+<section class="view" id="view-home" data-view="home">
+  <header class="hero">
+    <div class="container">
+      <p class="hero-kicker reveal">Alex Byun · Sydney</p>
+      <h1 class="reveal">Final-year CS student obsessed with what AI can actually do.</h1>
+      <p class="hero-sub reveal">I build AI-augmented tools and agentic workflows, then use them every day. Some of it ships. All of it is real.</p>
+      <nav class="hero-links reveal" aria-label="Contact">
+        <a class="btn btn-primary" href="mailto:kimjay2288@gmail.com">Email me</a>
+        <a class="btn" href="https://github.com/byun-alex" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://x.com/MauJhn52270" target="_blank" rel="noopener">X (build log)</a>
+        <a class="btn" href="Alex-Byun-Resume.pdf" download>Resume</a>
+      </nav>
+    </div>
+  </header>
   <div class="container">
-    <p class="project-kicker reveal">Brain Dashboard</p>
-    <h3 class="reveal">A local Jarvis for every project on my machine.</h3>
-    <p class="project-value reveal">Chat with Claude, drop into a real embedded terminal, switch project context, and watch the token cost of every AI call in real time.</p>
-    <figure class="project-visual reveal">
-      <img src="assets/brain-dashboard.png" alt="Brain Dashboard home screen: greeting, quick actions, and a grid of 18 projects" loading="lazy">
-    </figure>
-    <div class="project-body">
-      <p class="reveal">A Node.js web app with no framework: a plain HTTP server, a WebSocket bridge, and vanilla JS on the front. The embedded terminal is a genuine Claude REPL running in the browser through ConPTY and xterm.js, not a mock. It is the home base I actually start my day in.</p>
-      <ul class="skills reveal" aria-label="Skills this project proves">
-        <li>Node.js, zero framework</li><li>WebSocket + ConPTY</li><li>xterm.js</li><li>cost observability</li><li>headless Claude orchestration</li>
-      </ul>
-      <p class="depth reveal"><span class="depth-tag">living system</span></p>
-      <p class="honest reveal"><strong>What it actually took.</strong> The embedded terminal nearly broke me. Plain node-pty fails on Node 24 on Windows with a bare spawn EINVAL, and so does the usual prebuilt fork; finding that the Homebridge prebuilt was the one binding that works took a full evening of dead ends. The lesson that stuck: when a native module fails, the fix is rarely your code, it is picking the right build of someone else's.</p>
-      <p class="project-links reveal"><a href="https://github.com/byun-alex/brain-dashboard" target="_blank" rel="noopener">github.com/byun-alex/brain-dashboard &rarr;</a></p>
+    <div class="route-cards">
+      <a class="card route-card reveal" href="#portfolio">
+        <h3>Portfolio</h3>
+        <p>Five builds, presented properly. A compact grid; one click gets you the full story of each.</p>
+        <span class="go">See the work &rarr;</span>
+      </a>
+      <a class="card route-card reveal" href="#process">
+        <h3>Process</h3>
+        <p>How I ship: build in public, dates on everything, and the private systems that run my actual life.</p>
+        <span class="go">See how I work &rarr;</span>
+      </a>
+      <a class="card route-card reveal" href="#about">
+        <h3>About</h3>
+        <p>Who I am, what changed a few weeks ago, and the roles I am looking for.</p>
+        <span class="go">The short story &rarr;</span>
+      </a>
+      <a class="card route-card reveal" href="#contact">
+        <h3>Contact</h3>
+        <p>One email, no forms. Resume is one click away.</p>
+        <span class="go">Get in touch &rarr;</span>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- Interactive Life Planner -->
-<section class="project" id="life-planner">
+<!-- ======================= ABOUT ======================= -->
+<section class="view" id="view-about" data-view="about">
   <div class="container">
-    <p class="project-kicker reveal">Interactive Life Planner</p>
-    <h3 class="reveal">A weekly planner that asks whether you actually did it.</h3>
-    <p class="project-value reveal">Time-block your week, then answer for every block: done, or skipped? A brain-dump box turns three messy lines into a planned week using Claude, with a preview before anything is applied.</p>
-    <figure class="project-visual reveal">
-      <img src="assets/life-planner.png" alt="Interactive Life Planner: a week grid of time blocks with done and skipped states, streaks, XP and a follow-through score" loading="lazy">
-    </figure>
-    <div class="project-body">
-      <p class="reveal">Most planners are joyless, so people stop opening them. This one has streaks, XP, a mood check-in and a follow-through percentage, because the resolution loop (did you do the thing you planned?) is the whole product. Zero-dependency Node server, vanilla frontend, JSON store on disk. The AI never writes to your week without an explicit Apply.</p>
-      <ul class="skills reveal" aria-label="Skills this project proves">
-        <li>zero-dep Node</li><li>product thinking</li><li>headless claude -p integration</li><li>defensive JSON validation</li><li>engagement design</li>
-      </ul>
-      <p class="depth reveal"><span class="depth-tag">weekend hack</span></p>
-      <p class="honest reveal"><strong>What it actually took.</strong> Built in two days, but the interesting hour was deciding what the product is. The insight from the original spec was that planning apps die at the follow-through step, so I built the did-you-do-it loop first and the pretty grid second. Screenshot-testing the UI headlessly caught two real layout bugs I would have shipped blind. Not open source yet; the code runs my actual week.</p>
+    <div class="view-head">
+      <p class="kicker reveal">About</p>
+      <h2 class="reveal">The short story.</h2>
+    </div>
+    <div class="about-body">
+      <p class="reveal">I am Alex, a final-year Computer Science student in Sydney. A few weeks ago I noticed I was a person with strong ideas and nothing shipped, so I changed how I work: I build with AI as a daily collaborator, in public, with dates on everything. The projects on this site are the result and the pace is the point.</p>
+      <p class="reveal">I am looking for Technical Support Engineer and junior technical roles where the job is understanding a system deeply enough to fix it and explaining it clearly enough that the customer relaxes. The systems on this site are my evidence: I document obsessively, I verify before I call something done, and I like the unglamorous reliability work most people skip.</p>
+    </div>
+    <div class="about-actions reveal">
+      <a class="btn btn-primary" href="mailto:kimjay2288@gmail.com">kimjay2288@gmail.com</a>
+      <a class="btn" href="Alex-Byun-Resume.pdf" download>Download resume (PDF)</a>
+      <a class="btn" href="https://github.com/byun-alex" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </section>
 
-<!-- content-factory -->
-<section class="project" id="content-factory">
+<!-- ======================= PROCESS ======================= -->
+<section class="view" id="view-process" data-view="process">
   <div class="container">
-    <p class="project-kicker reveal">content-factory</p>
-    <h3 class="reveal">One AI orchestrator, four tools, a finished video at the end.</h3>
-    <p class="project-value reveal">Claude drives music generation, visuals and FFmpeg assembly through a single documented pipeline, with human approval gates exactly where taste matters.</p>
-    <figure class="project-visual reveal">
-      <div class="pipeline" role="img" aria-label="Pipeline diagram: prompt pack, then generation of songs and visuals, then human gate one, then FFmpeg assembly, then human gate two, then published video">
-        <div class="pipe-step">prompt pack</div>
-        <div class="pipe-arrow" aria-hidden="true">&darr;</div>
-        <div class="pipe-row">
-          <div class="pipe-step">songs<span>Suno via Composio MCP</span></div>
-          <div class="pipe-step">visual loops<span>Higgsfield API</span></div>
-        </div>
-        <div class="pipe-arrow" aria-hidden="true">&darr;</div>
-        <div class="pipe-step pipe-gate">human gate 1 · take approval</div>
-        <div class="pipe-arrow" aria-hidden="true">&darr;</div>
-        <div class="pipe-step">FFmpeg assembly<span>crossfades + loops to runtime</span></div>
-        <div class="pipe-arrow" aria-hidden="true">&darr;</div>
-        <div class="pipe-step pipe-gate">human gate 2 · final approval</div>
-        <div class="pipe-arrow" aria-hidden="true">&darr;</div>
-        <div class="pipe-step pipe-final">published long-form video</div>
+    <div class="view-head">
+      <p class="kicker reveal">Process</p>
+      <h2 class="reveal">How I work.</h2>
+      <p class="section-sub reveal">Building with AI as a daily collaborator is a discipline, not a shortcut. These are the rules I hold myself to.</p>
+    </div>
+    <div class="method">
+      <div class="card reveal">
+        <h3>Build in public</h3>
+        <p>Everything gets a date and a public trace: a repo, a post, a line in the build log below. Consistency is easier to prove than talent.</p>
       </div>
-    </figure>
-    <div class="project-body">
-      <p class="reveal">An end-to-end engine for faceless ambient and lofi channels. One shared pipeline runs multiple channels, each with its own locked style guide, so adding a channel is configuration, not a rewrite. Every published asset is traceable through run logs and consistent naming.</p>
-      <ul class="skills reveal" aria-label="Skills this project proves">
-        <li>MCP tool wiring</li><li>multi-tool orchestration</li><li>FFmpeg</li><li>human-in-the-loop design</li><li>process documentation</li>
-      </ul>
-      <p class="depth reveal"><span class="depth-tag">multi-week build</span></p>
-      <p class="honest reveal"><strong>What it actually took.</strong> The hard part was resisting full automation. Early versions tried to automate the take-selection step and the output got worse, because taste is the one layer a pipeline cannot fake. The two approval gates are a design decision, not missing code. Wiring four tools that were never meant to talk to each other taught me more about integration failure modes than any tutorial.</p>
-      <p class="project-links reveal"><a href="https://github.com/byun-alex/content-factory" target="_blank" rel="noopener">github.com/byun-alex/content-factory &rarr;</a></p>
-    </div>
-  </div>
-</section>
-
-<!-- claude-session-continuity -->
-<section class="project" id="session-continuity">
-  <div class="container">
-    <p class="project-kicker reveal">claude-session-continuity</p>
-    <h3 class="reveal">Memory for a tool that forgets everything.</h3>
-    <p class="project-value reveal">Claude Code starts every session blank. These custom skills give it a durable cross-session memory, so "what was I doing?" takes ten seconds instead of ten minutes.</p>
-    <figure class="project-visual reveal">
-      <div class="terminal" role="img" aria-label="Terminal showing the wrapup and catchup workflow across two sessions">
-        <div class="terminal-bar"><span></span><span></span><span></span><em>claude</em></div>
-        <pre>
-<b>~/projects $</b> /wrapup
-Saved handoff to Session Diary/Portfolio.md
-+ 1 rollup line to _Overall.md
-
-<i># next morning, cold start, zero memory</i>
-
-<b>~/projects $</b> /catchup
-Good morning. Yesterday you shipped the hero
-section and stopped at the timeline. Next step:
-wire the scroll reveals. Plan for today ready.</pre>
+      <div class="card reveal">
+        <h3>Human gates where taste matters</h3>
+        <p>I automate aggressively but keep approval steps wherever quality is a judgement call. The pipeline serves the taste, not the other way around.</p>
       </div>
-    </figure>
-    <div class="project-body">
-      <p class="reveal">Four slash-command skills over one central Session Diary: /wrapup checkpoints a session into a structured handoff, /catchup rebuilds context next time, /catchup-all briefs across every project from a one-line-per-session rollup, /checkin is the accountability variant. A fixed entry schema is the contract between the session that writes and the session that reads.</p>
-      <ul class="skills reveal" aria-label="Skills this project proves">
-        <li>Claude Code skills + hooks</li><li>schema as contract</li><li>context engineering</li><li>documentation systems</li>
-      </ul>
-      <p class="depth reveal"><span class="depth-tag">living system</span></p>
-      <p class="honest reveal"><strong>What it actually took.</strong> This came from genuine pain: a dozen projects in one folder and every morning spent re-explaining myself to a goldfish. The design goal became a sentence I kept testing against: a future session with no memory should be productive in ten seconds. Getting the entry format right mattered more than any code, because the reader is an AI with no context and no patience. I run it hourly, every day.</p>
-      <p class="project-links reveal"><a href="https://github.com/byun-alex/claude-session-continuity" target="_blank" rel="noopener">github.com/byun-alex/claude-session-continuity &rarr;</a></p>
-    </div>
-  </div>
-</section>
-
-<!-- job-ad-extractor -->
-<section class="project" id="job-ad-extractor">
-  <div class="container">
-    <p class="project-kicker reveal">job-ad-extractor</p>
-    <h3 class="reveal">The reliability layer around an LLM call.</h3>
-    <p class="project-value reveal">Messy job ad in, strict validated JSON out. Prompt versioning, schema validation and an eval harness turn "it seems to work" into a measured pass rate.</p>
-    <figure class="project-visual reveal">
-      <div class="json-card" role="img" aria-label="A messy job ad being converted into clean structured JSON">
-        <div class="json-before">
-          <em>in: free text</em>
-          <p>"Were hiring!! Sr. Support Eng (Sydney/hybrid) - 90-110k + super, must know SQL &amp; APIs, 3+ yrs..."</p>
-        </div>
-        <div class="json-arrow" aria-hidden="true">&rarr;</div>
-        <div class="json-after">
-          <em>out: validated JSON</em>
-<pre>{
-  "title": "Senior Support Engineer",
-  "location": "Sydney",
-  "employment_type": "full_time",
-  "seniority": "senior",
-  "salary_min": 90000,
-  "salary_max": 110000,
-  "skills": ["SQL", "APIs"]
-}</pre>
-        </div>
+      <div class="card reveal">
+        <h3>Verify before done</h3>
+        <p>Nothing is finished until it runs end to end and the docs let a stranger (or a memoryless AI) pick it up cold.</p>
       </div>
-    </figure>
-    <div class="project-body">
-      <p class="reveal">LLM steps fail quietly: prose instead of JSON, a dropped field, an invented enum, a salary band where max is below min. Every output here passes a pydantic gate or gets rejected and logged. An eval runner scores each prompt version against a hand-labelled golden set, and a regression check flags any case that passed before and fails now.</p>
-      <ul class="skills reveal" aria-label="Skills this project proves">
-        <li>prompt versioning</li><li>structured-output validation</li><li>eval harness</li><li>pydantic</li><li>provider-agnostic client</li>
-      </ul>
-      <p class="depth reveal"><span class="depth-tag">weekend hack</span></p>
-      <p class="honest reveal"><strong>What it actually took.</strong> Small on purpose. I built it to internalise one idea: the difference between an LLM call you wrote and an LLM call you can prove behaves. Writing the golden set by hand was tedious and it is exactly where the value lives, because "quality" became a number I can watch move between prompt versions instead of a vibe.</p>
-      <p class="project-links reveal"><a href="https://github.com/byun-alex/job-ad-extractor" target="_blank" rel="noopener">github.com/byun-alex/job-ad-extractor &rarr;</a></p>
     </div>
-  </div>
-</section>
 
-<!-- ======================= TIMELINE ======================= -->
-<section class="timeline-section" id="timeline">
-  <div class="container">
     <h2 class="reveal">The build log.</h2>
     <p class="section-sub reveal">Dated, public, and honest. This is the pace I actually ship at.</p>
     <ol class="timeline reveal">
-      <li><time>5 Jul 2026</time><span>This site: designed, written and deployed in a day, with its own maintenance handbook.</span></li>
+      <li><time>6 Jul 2026</time><span>This site, version 2: dark redesign, navigation, and a compact portfolio with a page per project.</span></li>
+      <li><time>5 Jul 2026</time><span>This site, version 1: designed, written and deployed in a day, with its own maintenance handbook.</span></li>
       <li><time>4 Jul 2026</time><span>Telegram capture pipeline went live: a Cloudflare Worker webhook now catches ideas I send from my phone.</span></li>
       <li><time>3 Jul 2026</time><span>Interactive Life Planner v1 shipped: week grid, did-you-do-it loop, AI brain-dump planning.</span></li>
       <li><time>28 Jun 2026</time><span>Built my first autonomous cloud agents: a daily Morning Brief email and a Sunday Weekly Wrap, running on a schedule without me.</span></li>
@@ -201,31 +133,26 @@ wire the scroll reveals. Plan for today ready.</pre>
       <li><time>21 Jun 2026</time><span>Claude Journey post #1 live on X and Instagram: the start of building in public.</span></li>
       <li><time>19 Jun 2026</time><span>Built the Brain Dashboard: the local Jarvis home base everything else runs from.</span></li>
     </ol>
-  </div>
-</section>
 
-<!-- ======================= CASE STUDIES ======================= -->
-<section class="cases-section" id="case-studies">
-  <div class="container">
     <h2 class="reveal">The systems behind the tools.</h2>
     <p class="section-sub reveal">These run my actual life, so the content stays private. The architecture is public and written up as case studies.</p>
     <div class="cases">
-      <article class="case reveal">
+      <article class="card case reveal">
         <h3>Second Brain: a personal accountability engine</h3>
         <p>An Obsidian vault where a CLAUDE.md behaviour spec turns the assistant into an accountability coach. A daily /checkin skill reviews yesterday's commitments, forces dated ones for today, and files the record. Built to fix my own follow-through problem; used every day. The behaviour is the product, the notes are just its memory.</p>
         <a href="https://github.com/byun-alex/second-brain-system" target="_blank" rel="noopener">Read the case study &rarr;</a>
       </article>
-      <article class="case reveal">
+      <article class="card case reveal">
         <h3>Morning-brief agent: an email that writes itself</h3>
         <p>A scheduled Claude Code cloud agent that reads my calendar, inbox, to-dos and the weather each morning and emails me a brief before the day starts, plus a strategic Sunday wrap. The whole behaviour is defined in two Markdown spec files: edit a bullet, the brief changes. No code to redeploy.</p>
         <a href="https://github.com/byun-alex/morning-brief-agent" target="_blank" rel="noopener">Read the case study &rarr;</a>
       </article>
-      <article class="case reveal">
+      <article class="card case reveal">
         <h3>study-brain: an LLM-maintained study wiki</h3>
         <p>A study system with a strict division of labour: I curate sources and ask questions, the AI writes and maintains the entire wiki. Every practice and exam question gets answered and linked back to the concept it tests, written beginner-first so revision compounds instead of evaporating.</p>
         <a href="https://github.com/byun-alex/study-brain" target="_blank" rel="noopener">Read the case study &rarr;</a>
       </article>
-      <article class="case reveal">
+      <article class="card case reveal">
         <h3>Telegram capture: ideas from my phone to my vault</h3>
         <p>A capture pipeline: message a Telegram bot from anywhere, a Cloudflare Worker webhook stores it in KV, and my local system ingests it into the right vault with an acknowledgement back. Built because ideas die in the gap between having them and being at the computer.</p>
         <span class="case-note">Private pipeline; writeup on request.</span>
@@ -234,22 +161,66 @@ wire the scroll reveals. Plan for today ready.</pre>
   </div>
 </section>
 
-<!-- ======================= ABOUT ======================= -->
-<section class="about" id="about">
+<!-- ======================= PORTFOLIO ======================= -->
+<section class="view" id="view-portfolio" data-view="portfolio">
   <div class="container">
-    <h2 class="reveal">About.</h2>
-    <div class="about-body reveal">
-      <p>I am Alex, a final-year Computer Science student in Sydney. A few weeks ago I noticed I was a person with strong ideas and nothing shipped, so I changed how I work: I build with AI as a daily collaborator, in public, with dates on everything. The projects above are the result and the pace is the point.</p>
-      <p>I am looking for Technical Support Engineer and junior technical roles where the job is understanding a system deeply enough to fix it and explaining it clearly enough that the customer relaxes. The systems on this page are my evidence: I document obsessively, I verify before I call something done, and I like the unglamorous reliability work most people skip.</p>
+    <div class="view-head">
+      <p class="kicker reveal">Portfolio</p>
+      <h2 class="reveal">Things I built.</h2>
+      <p class="section-sub reveal">Proof over credentials. Each of these is public code or a working system on my machine. Click through for the full story, including an honest note on what it took to build.</p>
     </div>
-    <div class="about-actions reveal">
-      <a class="btn btn-primary" href="mailto:kimjay2288@gmail.com">kimjay2288@gmail.com</a>
-      <a class="btn" href="Alex-Byun-Resume.pdf" download>Download resume (PDF)</a>
-      <a class="btn" href="https://github.com/byun-alex" target="_blank" rel="noopener">GitHub</a>
-      <a class="btn" href="https://x.com/MauJhn52270" target="_blank" rel="noopener">X</a>
+    <div class="pgrid">
+      <a class="card pcard reveal" href="portfolio/brain-dashboard.html">
+        <p class="pcard-kicker">Brain Dashboard</p>
+        <h3>A local Jarvis for every project on my machine.</h3>
+        <p>Chat with Claude, a real embedded terminal, project context switching, live token costs.</p>
+        <div class="pcard-foot"><span class="depth-tag">living system</span><span class="go">Full story &rarr;</span></div>
+      </a>
+      <a class="card pcard reveal" href="portfolio/life-planner.html">
+        <p class="pcard-kicker">Interactive Life Planner</p>
+        <h3>A weekly planner that asks whether you actually did it.</h3>
+        <p>Time-block your week, then answer for every block: done, or skipped? AI plans from a brain dump.</p>
+        <div class="pcard-foot"><span class="depth-tag">weekend hack</span><span class="go">Full story &rarr;</span></div>
+      </a>
+      <a class="card pcard reveal" href="portfolio/content-factory.html">
+        <p class="pcard-kicker">content-factory</p>
+        <h3>One AI orchestrator, four tools, a finished video at the end.</h3>
+        <p>Claude drives music, visuals and FFmpeg assembly through one pipeline, with human approval gates.</p>
+        <div class="pcard-foot"><span class="depth-tag">multi-week build</span><span class="go">Full story &rarr;</span></div>
+      </a>
+      <a class="card pcard reveal" href="portfolio/session-continuity.html">
+        <p class="pcard-kicker">claude-session-continuity</p>
+        <h3>Memory for a tool that forgets everything.</h3>
+        <p>Custom skills that give Claude Code a durable cross-session memory over one Session Diary.</p>
+        <div class="pcard-foot"><span class="depth-tag">living system</span><span class="go">Full story &rarr;</span></div>
+      </a>
+      <a class="card pcard reveal" href="portfolio/job-ad-extractor.html">
+        <p class="pcard-kicker">job-ad-extractor</p>
+        <h3>The reliability layer around an LLM call.</h3>
+        <p>Messy job ad in, strict validated JSON out. Prompt versioning, schema gates, an eval harness.</p>
+        <div class="pcard-foot"><span class="depth-tag">weekend hack</span><span class="go">Full story &rarr;</span></div>
+      </a>
     </div>
   </div>
 </section>
+
+<!-- ======================= CONTACT ======================= -->
+<section class="view" id="view-contact" data-view="contact">
+  <div class="container">
+    <div class="view-head">
+      <p class="kicker reveal">Contact</p>
+      <h2 class="reveal">One email, no forms.</h2>
+      <p class="contact-lede reveal">If you are hiring for Technical Support Engineer or junior technical roles in Sydney, or you want to talk about anything on this site, I read everything.</p>
+    </div>
+    <a class="contact-email reveal" href="mailto:kimjay2288@gmail.com">kimjay2288@gmail.com</a>
+    <div class="contact-actions reveal">
+      <a class="btn" href="Alex-Byun-Resume.pdf" download>Download resume (PDF)</a>
+      <a class="btn" href="https://github.com/byun-alex" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://x.com/MauJhn52270" target="_blank" rel="noopener">X (build log)</a>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <footer>

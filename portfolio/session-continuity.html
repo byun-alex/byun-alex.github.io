@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>claude-session-continuity - Alex Byun</title>
+<meta name="description" content="Memory for a tool that forgets everything: custom skills that give Claude Code a durable cross-session memory.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<div class="glow-field" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+</div>
+
+<nav class="site-nav" id="site-nav">
+  <div class="container">
+    <a class="brand" href="../index.html#home">Alex Byun</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home">Home</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#process">Process</a></li>
+      <li><a class="active" href="../index.html#portfolio">Portfolio</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="detail-main">
+  <div class="container">
+    <a class="back-link" href="../index.html#portfolio">&larr; Back to portfolio</a>
+
+    <article class="project">
+      <p class="project-kicker reveal">claude-session-continuity</p>
+      <h1 class="reveal">Memory for a tool that forgets everything.</h1>
+      <p class="project-value reveal">Claude Code starts every session blank. These custom skills give it a durable cross-session memory, so "what was I doing?" takes ten seconds instead of ten minutes.</p>
+      <figure class="project-visual reveal">
+        <div class="terminal" role="img" aria-label="Terminal showing the wrapup and catchup workflow across two sessions">
+          <div class="terminal-bar"><span></span><span></span><span></span><em>claude</em></div>
+          <pre>
+<b>~/projects $</b> /wrapup
+Saved handoff to Session Diary/Portfolio.md
++ 1 rollup line to _Overall.md
+
+<i># next morning, cold start, zero memory</i>
+
+<b>~/projects $</b> /catchup
+Good morning. Yesterday you shipped the hero
+section and stopped at the timeline. Next step:
+wire the scroll reveals. Plan for today ready.</pre>
+        </div>
+      </figure>
+      <div class="project-body">
+        <p class="reveal">Four slash-command skills over one central Session Diary: /wrapup checkpoints a session into a structured handoff, /catchup rebuilds context next time, /catchup-all briefs across every project from a one-line-per-session rollup, /checkin is the accountability variant. A fixed entry schema is the contract between the session that writes and the session that reads.</p>
+        <ul class="skills reveal" aria-label="Skills this project proves">
+          <li>Claude Code skills + hooks</li><li>schema as contract</li><li>context engineering</li><li>documentation systems</li>
+        </ul>
+        <p class="depth reveal"><span class="depth-tag">living system</span></p>
+        <p class="honest reveal"><strong>What it actually took.</strong> This came from genuine pain: a dozen projects in one folder and every morning spent re-explaining myself to a goldfish. The design goal became a sentence I kept testing against: a future session with no memory should be productive in ten seconds. Getting the entry format right mattered more than any code, because the reader is an AI with no context and no patience. I run it hourly, every day.</p>
+        <p class="project-links reveal"><a href="https://github.com/byun-alex/claude-session-continuity" target="_blank" rel="noopener">github.com/byun-alex/claude-session-continuity &rarr;</a></p>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p><a href="../index.html#portfolio">&larr; Back to portfolio</a> · Designed and built with Claude.</p>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Life Planner - Alex Byun</title>
+<meta name="description" content="A weekly planner that asks whether you actually did it: time blocks, streaks, XP, and AI brain-dump planning.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<div class="glow-field" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+</div>
+
+<nav class="site-nav" id="site-nav">
+  <div class="container">
+    <a class="brand" href="../index.html#home">Alex Byun</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home">Home</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#process">Process</a></li>
+      <li><a class="active" href="../index.html#portfolio">Portfolio</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="detail-main">
+  <div class="container">
+    <a class="back-link" href="../index.html#portfolio">&larr; Back to portfolio</a>
+
+    <article class="project">
+      <p class="project-kicker reveal">Interactive Life Planner</p>
+      <h1 class="reveal">A weekly planner that asks whether you actually did it.</h1>
+      <p class="project-value reveal">Time-block your week, then answer for every block: done, or skipped? A brain-dump box turns three messy lines into a planned week using Claude, with a preview before anything is applied.</p>
+      <figure class="project-visual reveal">
+        <img src="../assets/life-planner.png" alt="Interactive Life Planner: a week grid of time blocks with done and skipped states, streaks, XP and a follow-through score" loading="lazy">
+      </figure>
+      <div class="project-body">
+        <p class="reveal">Most planners are joyless, so people stop opening them. This one has streaks, XP, a mood check-in and a follow-through percentage, because the resolution loop (did you do the thing you planned?) is the whole product. Zero-dependency Node server, vanilla frontend, JSON store on disk. The AI never writes to your week without an explicit Apply.</p>
+        <ul class="skills reveal" aria-label="Skills this project proves">
+          <li>zero-dep Node</li><li>product thinking</li><li>headless claude -p integration</li><li>defensive JSON validation</li><li>engagement design</li>
+        </ul>
+        <p class="depth reveal"><span class="depth-tag">weekend hack</span></p>
+        <p class="honest reveal"><strong>What it actually took.</strong> Built in two days, but the interesting hour was deciding what the product is. The insight from the original spec was that planning apps die at the follow-through step, so I built the did-you-do-it loop first and the pretty grid second. Screenshot-testing the UI headlessly caught two real layout bugs I would have shipped blind. Not open source yet; the code runs my actual week.</p>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p><a href="../index.html#portfolio">&larr; Back to portfolio</a> · Designed and built with Claude.</p>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>

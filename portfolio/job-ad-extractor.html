@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>job-ad-extractor - Alex Byun</title>
+<meta name="description" content="The reliability layer around an LLM call: prompt versioning, schema validation and an eval harness.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<div class="glow-field" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+</div>
+
+<nav class="site-nav" id="site-nav">
+  <div class="container">
+    <a class="brand" href="../index.html#home">Alex Byun</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home">Home</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#process">Process</a></li>
+      <li><a class="active" href="../index.html#portfolio">Portfolio</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="detail-main">
+  <div class="container">
+    <a class="back-link" href="../index.html#portfolio">&larr; Back to portfolio</a>
+
+    <article class="project">
+      <p class="project-kicker reveal">job-ad-extractor</p>
+      <h1 class="reveal">The reliability layer around an LLM call.</h1>
+      <p class="project-value reveal">Messy job ad in, strict validated JSON out. Prompt versioning, schema validation and an eval harness turn "it seems to work" into a measured pass rate.</p>
+      <figure class="project-visual reveal">
+        <div class="json-card" role="img" aria-label="A messy job ad being converted into clean structured JSON">
+          <div class="json-before">
+            <em>in: free text</em>
+            <p>"Were hiring!! Sr. Support Eng (Sydney/hybrid) - 90-110k + super, must know SQL &amp; APIs, 3+ yrs..."</p>
+          </div>
+          <div class="json-arrow" aria-hidden="true">&rarr;</div>
+          <div class="json-after">
+            <em>out: validated JSON</em>
+<pre>{
+  "title": "Senior Support Engineer",
+  "location": "Sydney",
+  "employment_type": "full_time",
+  "seniority": "senior",
+  "salary_min": 90000,
+  "salary_max": 110000,
+  "skills": ["SQL", "APIs"]
+}</pre>
+          </div>
+        </div>
+      </figure>
+      <div class="project-body">
+        <p class="reveal">LLM steps fail quietly: prose instead of JSON, a dropped field, an invented enum, a salary band where max is below min. Every output here passes a pydantic gate or gets rejected and logged. An eval runner scores each prompt version against a hand-labelled golden set, and a regression check flags any case that passed before and fails now.</p>
+        <ul class="skills reveal" aria-label="Skills this project proves">
+          <li>prompt versioning</li><li>structured-output validation</li><li>eval harness</li><li>pydantic</li><li>provider-agnostic client</li>
+        </ul>
+        <p class="depth reveal"><span class="depth-tag">weekend hack</span></p>
+        <p class="honest reveal"><strong>What it actually took.</strong> Small on purpose. I built it to internalise one idea: the difference between an LLM call you wrote and an LLM call you can prove behaves. Writing the golden set by hand was tedious and it is exactly where the value lives, because "quality" became a number I can watch move between prompt versions instead of a vibe.</p>
+        <p class="project-links reveal"><a href="https://github.com/byun-alex/job-ad-extractor" target="_blank" rel="noopener">github.com/byun-alex/job-ad-extractor &rarr;</a></p>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p><a href="../index.html#portfolio">&larr; Back to portfolio</a> · Designed and built with Claude.</p>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brain Dashboard - Alex Byun</title>
+<meta name="description" content="A local Jarvis for every project on my machine: chat with Claude, a real embedded terminal, live token costs.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<div class="glow-field" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+</div>
+
+<nav class="site-nav" id="site-nav">
+  <div class="container">
+    <a class="brand" href="../index.html#home">Alex Byun</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home">Home</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#process">Process</a></li>
+      <li><a class="active" href="../index.html#portfolio">Portfolio</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="detail-main">
+  <div class="container">
+    <a class="back-link" href="../index.html#portfolio">&larr; Back to portfolio</a>
+
+    <article class="project">
+      <p class="project-kicker reveal">Brain Dashboard</p>
+      <h1 class="reveal">A local Jarvis for every project on my machine.</h1>
+      <p class="project-value reveal">Chat with Claude, drop into a real embedded terminal, switch project context, and watch the token cost of every AI call in real time.</p>
+      <figure class="project-visual reveal">
+        <img src="../assets/brain-dashboard.png" alt="Brain Dashboard home screen: greeting, quick actions, and a grid of 18 projects" loading="lazy">
+      </figure>
+      <div class="project-body">
+        <p class="reveal">A Node.js web app with no framework: a plain HTTP server, a WebSocket bridge, and vanilla JS on the front. The embedded terminal is a genuine Claude REPL running in the browser through ConPTY and xterm.js, not a mock. It is the home base I actually start my day in.</p>
+        <ul class="skills reveal" aria-label="Skills this project proves">
+          <li>Node.js, zero framework</li><li>WebSocket + ConPTY</li><li>xterm.js</li><li>cost observability</li><li>headless Claude orchestration</li>
+        </ul>
+        <p class="depth reveal"><span class="depth-tag">living system</span></p>
+        <p class="honest reveal"><strong>What it actually took.</strong> The embedded terminal nearly broke me. Plain node-pty fails on Node 24 on Windows with a bare spawn EINVAL, and so does the usual prebuilt fork; finding that the Homebridge prebuilt was the one binding that works took a full evening of dead ends. The lesson that stuck: when a native module fails, the fix is rarely your code, it is picking the right build of someone else's.</p>
+        <p class="project-links reveal"><a href="https://github.com/byun-alex/brain-dashboard" target="_blank" rel="noopener">github.com/byun-alex/brain-dashboard &rarr;</a></p>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p><a href="../index.html#portfolio">&larr; Back to portfolio</a> · Designed and built with Claude.</p>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>
