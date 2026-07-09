@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>log-triage - Alex Byun</title>
+<meta name="description" content="Paste a messy log, get a ranked diagnosis: distinct issues, likely causes, and the next command to run.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<div class="glow-field" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+</div>
+
+<nav class="site-nav" id="site-nav">
+  <div class="container">
+    <a class="brand" href="../index.html#home">Alex Byun</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home">Home</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#process">Process</a></li>
+      <li><a class="active" href="../index.html#portfolio">Portfolio</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="detail-main">
+  <div class="container">
+    <a class="back-link" href="../index.html#portfolio">&larr; Back to portfolio</a>
+
+    <article class="project">
+      <p class="project-kicker reveal">log-triage</p>
+      <h1 class="reveal">Paste a messy log, get a ranked diagnosis.</h1>
+      <p class="project-value reveal">It reads a raw log the way a support engineer would: finds the distinct problems buried in thousands of repeated lines, puts the worst ones first, and tells you the likely cause plus the next command to run.</p>
+      <figure class="project-visual reveal">
+        <div class="terminal" role="img" aria-label="Terminal output showing a ranked log diagnosis">
+          <div class="terminal-bar"><span></span><span></span><span></span><em>log-triage app.log</em></div>
+<pre><b>#1  CRITICAL</b>  db connection pool exhausted   <i>x142, bursting</i>
+    likely cause: connections not returned under load
+    next: <b>check pool size vs concurrent workers</b>
+#2  ERROR     TLS handshake timeout to payments-api  <i>x38</i>
+    likely cause: upstream cert or network path
+    next: <b>openssl s_client -connect payments-api:443</b>
+#3  WARN      retry queue depth rising               <i>x12, recent</i>
+<i>3 distinct issues from 4,096 lines · exit code 2 (critical found)</i></pre>
+        </div>
+      </figure>
+      <div class="project-body">
+        <p class="reveal">Raw logs are noise: the same error repeated four thousand times, several formats mixed together, the real problem buried mid-file. This tool works out the format on its own (app logs, syslog, JSON lines, stack traces), collapses the repeats, and scores each distinct problem on how severe it is, how often it happens, how recent it is, and whether it is suddenly spiking. A knowledge base of about 25 rules then matches each problem to a likely cause and the next command worth running. It can also fail a CI build automatically when something critical shows up.</p>
+        <ul class="skills reveal" aria-label="Skills this project proves">
+          <li>log parsing</li><li>format auto-detection</li><li>rule-based diagnosis</li><li>ranking heuristics</li><li>zero dependencies</li><li>17 tests</li>
+        </ul>
+        <p class="depth reveal"><span class="depth-tag">weekend hack</span></p>
+        <p class="honest reveal"><strong>What it actually took.</strong> Deliberately no AI in this one: support tooling has to give the same answer every time, work offline, and be explainable, so every ranking decision is a plain rule you can read in the source. The ranking weights came from a real test failure, where a sudden burst of errors mattered more than how recent they were, so bursts now outweigh recency in the score. Python standard library only, nothing to install.</p>
+        <p class="project-links reveal"><a href="https://github.com/byun-alex/log-triage" target="_blank" rel="noopener">github.com/byun-alex/log-triage &rarr;</a></p>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p><a href="../index.html#portfolio">&larr; Back to portfolio</a> · Designed and built with Claude.</p>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Murmur - Alex Byun</title>
+<meta name="description" content="Local dictation for Windows: press a hotkey, talk, and cleaned-up text is pasted at your cursor. Nothing leaves the machine.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<div class="glow-field" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+</div>
+
+<nav class="site-nav" id="site-nav">
+  <div class="container">
+    <a class="brand" href="../index.html#home">Alex Byun</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home">Home</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#process">Process</a></li>
+      <li><a class="active" href="../index.html#portfolio">Portfolio</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="detail-main">
+  <div class="container">
+    <a class="back-link" href="../index.html#portfolio">&larr; Back to portfolio</a>
+
+    <article class="project">
+      <p class="project-kicker reveal">Murmur</p>
+      <h1 class="reveal">Dictation that never leaves your machine.</h1>
+      <p class="project-value reveal">Press a hotkey, talk, press it again: cleaned-up text is pasted wherever your cursor is. A self-hosted alternative to paid dictation apps, running speech-to-text entirely on-device.</p>
+      <figure class="project-visual reveal">
+        <div class="terminal" role="img" aria-label="Terminal output from a Murmur dictation session">
+          <div class="terminal-bar"><span></span><span></span><span></span><em>Start Murmur.bat</em></div>
+<pre>model: small.en on CPU (int8)
+Murmur ready. <b>ctrl+alt+space</b> = start/stop dictation.
+
+[recording] press the hotkey again to stop...
+<b>[11.8s audio -> 2.0s]</b> Hello, this is a test of the Murmur
+dictation tool. It records your voice and types the text
+for you locally.
+<i>pasted at cursor · filler words stripped · nothing uploaded</i></pre>
+        </div>
+      </figure>
+      <div class="project-body">
+        <p class="reveal">Paid dictation apps charge 12 to 15 USD a month, and they work by sending your voice to their servers. Murmur does the same job in about 200 lines of Python, entirely on your own computer: a hotkey starts and stops the microphone, a local speech-recognition model (Whisper) turns the audio into text, filler sounds like "um" are stripped out, and the result is pasted into whatever window you were typing in. The only thing it ever downloads is the model itself, once.</p>
+        <ul class="skills reveal" aria-label="Skills this project proves">
+          <li>on-device Whisper</li><li>audio capture</li><li>global hotkeys</li><li>Windows input handling</li><li>root-cause debugging</li><li>Python</li>
+        </ul>
+        <p class="depth reveal"><span class="depth-tag">weekend hack</span></p>
+        <p class="honest reveal"><strong>What it actually took.</strong> The pipeline worked first try against generated test audio; the real lesson came live on a real keyboard. The text kept pasting twice. The transcript itself was clean, so the bug had to be in the delivery step, and it was: the program pressed Ctrl+V while my hand was still holding down the hotkey, and the two collided. The fix is to wait until the keys are physically released before pasting. This is v1, a console app; a small tray frontend is the planned next step.</p>
+        <p class="project-links reveal"><a href="https://github.com/byun-alex/murmur" target="_blank" rel="noopener">github.com/byun-alex/murmur &rarr;</a></p>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p><a href="../index.html#portfolio">&larr; Back to portfolio</a> · Designed and built with Claude.</p>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>
