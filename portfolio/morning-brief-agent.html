@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>morning-brief-agent - Alex Byun</title>
+<meta name="description" content="A scheduled cloud agent that emails me a daily brief. Its whole behaviour is a Markdown spec, so a change is an edit, not a redeploy.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<div class="glow-field" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+</div>
+
+<nav class="site-nav" id="site-nav">
+  <div class="container">
+    <a class="brand" href="../index.html#home">Alex Byun</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home">Home</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#process">Process</a></li>
+      <li><a class="active" href="../index.html#portfolio">Portfolio</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="detail-main">
+  <div class="container">
+    <a class="back-link" href="../index.html#portfolio">&larr; Back to portfolio</a>
+
+    <article class="project">
+      <p class="project-kicker reveal">morning-brief-agent</p>
+      <h1 class="reveal">A daily brief that writes itself and emails me.</h1>
+      <p class="project-value reveal">A scheduled cloud agent that every morning reads my calendar, inbox, deadlines and weather, composes a manager-style brief, and sends it. The behaviour is a Markdown spec, so a change is an edit, not a redeploy.</p>
+      <figure class="project-visual reveal">
+        <div class="terminal" role="img" aria-label="A generated morning brief email">
+          <div class="terminal-bar"><span></span><span></span><span></span><em>morning brief</em></div>
+<pre>Good morning. Here is today.
+
+  calendar   2 blocks: 9:00 focus, 12:30 review
+  inbox      1 thing that actually needs a reply
+  deadlines  scanner questions due today
+  weather    22C, rain from 3pm
+
+<i>if a source is empty or a tool fails, it says so plainly</i></pre>
+        </div>
+      </figure>
+      <div class="project-body">
+        <p class="reveal">This was one of my first autonomous cloud agents. It runs on a schedule, pulls from Gmail and Google Calendar through MCP connectors, folds in deadlines and weather, and writes the brief in a consistent voice before emailing it. It has been running daily on cron since June, plus a Sunday weekly wrap.</p>
+        <p class="reveal">The design choice I keep reusing is spec-as-config: the entire behaviour lives in a Markdown file read at run time, so tuning what the brief says is editing a document, not shipping code. And it fails loud, not silent. If a source is empty or a tool errors, the brief tells me so instead of inventing a plausible line, which is the difference between a report I can trust and one I have to double-check.</p>
+        <ul class="skills reveal" aria-label="Skills this project proves">
+          <li>scheduled cloud agents</li><li>spec-as-config design</li><li>MCP (Gmail + Calendar)</li><li>fail-loud reliability</li><li>cron automation</li>
+        </ul>
+        <p class="depth reveal"><span class="depth-tag">living system</span></p>
+        <p class="honest reveal"><strong>What it actually took.</strong> The temptation with a brief is to let the model smooth over a missing source so it always reads nicely. That is exactly the wrong call, because a brief you cannot trust is worse than no brief. Making it admit "inbox unavailable" instead of hallucinating a summary is a one-line rule and the whole reason I still read it.</p>
+        <p class="project-links reveal"><a href="https://github.com/byun-alex/morning-brief-agent" target="_blank" rel="noopener">github.com/byun-alex/morning-brief-agent &rarr;</a></p>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p><a href="../index.html#portfolio">&larr; Back to portfolio</a> · Designed and built with Claude.</p>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>

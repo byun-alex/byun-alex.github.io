@@ -419,6 +419,7 @@ a.card:hover, .card.hoverable:hover {
 
 .project-body { max-width: 680px; padding-bottom: 90px; }
 .project-body > p { color: var(--ink-soft); margin-bottom: 22px; }
+.muted { color: var(--ink-soft); opacity: 0.7; }
 
 .skills { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
 .skills li {

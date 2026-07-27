@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>overnight-agent - Alex Byun</title>
+<meta name="description" content="A verify-gated pipeline for unattended AI coding runs: hand it a job at night, wake to a finished branch and an honest report.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<div class="glow-field" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+</div>
+
+<nav class="site-nav" id="site-nav">
+  <div class="container">
+    <a class="brand" href="../index.html#home">Alex Byun</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home">Home</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#process">Process</a></li>
+      <li><a class="active" href="../index.html#portfolio">Portfolio</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="detail-main">
+  <div class="container">
+    <a class="back-link" href="../index.html#portfolio">&larr; Back to portfolio</a>
+
+    <article class="project">
+      <p class="project-kicker reveal">overnight-agent</p>
+      <h1 class="reveal">Hand an agent a job at night, wake to a verified result.</h1>
+      <p class="project-value reveal">A dispatch, watchdog and report pipeline for unattended AI coding runs, built around five named failure modes, with an independent verify gate that never trusts the worker's own word.</p>
+      <figure class="project-visual reveal">
+        <div class="terminal" role="img" aria-label="The morning report from an overnight run">
+          <div class="terminal-bar"><span></span><span></span><span></span><em>morning report</em></div>
+<pre>job: add-export-endpoint    branch: agent/export
+
+  verify command re-run by me   <b>PASS</b>
+  worker ended                  clean (cost logged)
+  watchdog                      no stall, no timeout
+  writes outside worktree       none
+
+<i>done means the verify command passes, not that it feels done</i></pre>
+        </div>
+      </figure>
+      <div class="project-body">
+        <p class="reveal">Unattended AI runs fail in specific, predictable ways, so the pipeline is built around five of them. A dispatcher launches the worker inside a throwaway git worktree on its own branch, so it physically cannot touch main or the wider workspace. A watchdog kills it if it passes a wall-clock cap or goes silent, and that kill is proven to reach the process across the WSL to Windows boundary. Every job must state its acceptance criteria and a verify command, or it is refused at dispatch.</p>
+        <p class="reveal">The core idea is the verify gate: the report step re-runs the job's own verify command itself and never trusts the worker's claim of success, then sends a Telegram summary with the pass or fail, how the worker ended, the watchdog verdict, and anything skipped. Writes are branch-only. It has been proven over live, verify-gated runs.</p>
+        <ul class="skills reveal" aria-label="Skills this project proves">
+          <li>agent orchestration</li><li>independent verification</li><li>worktree isolation</li><li>watchdog + timeouts</li><li>Bash + WSL</li><li>Telegram Bot API</li>
+        </ul>
+        <p class="depth reveal"><span class="depth-tag">multi-week build</span></p>
+        <p class="honest reveal"><strong>What it actually took.</strong> The whole thing exists because I did not trust an agent's own report, and I was right not to. The interesting engineering was not making it run overnight, it was making the failure modes explicit and building a specific defence for each one. An agent you can leave alone is an agent whose claims you can check without it.</p>
+        <p class="project-links reveal"><a href="https://github.com/byun-alex/overnight-agent" target="_blank" rel="noopener">github.com/byun-alex/overnight-agent &rarr;</a></p>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p><a href="../index.html#portfolio">&larr; Back to portfolio</a> · Designed and built with Claude.</p>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avatar Factory - Alex Byun</title>
+<meta name="description" content="A persona-driven AI content pipeline: one engine, reskinned to a new channel by swapping a single config file.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<div class="glow-field" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+</div>
+
+<nav class="site-nav" id="site-nav">
+  <div class="container">
+    <a class="brand" href="../index.html#home">Alex Byun</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home">Home</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#process">Process</a></li>
+      <li><a class="active" href="../index.html#portfolio">Portfolio</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="detail-main">
+  <div class="container">
+    <a class="back-link" href="../index.html#portfolio">&larr; Back to portfolio</a>
+
+    <article class="project">
+      <p class="project-kicker reveal">Avatar Factory</p>
+      <h1 class="reveal">One content engine, swap a file to change the whole channel.</h1>
+      <p class="project-value reveal">A pipeline that generates short-form video for a synthetic on-camera presenter, end to end, and is built to be reskinned to a new niche by editing a single config file.</p>
+      <figure class="project-visual reveal">
+        <div class="terminal" role="img" aria-label="The three stages of the avatar content pipeline">
+          <div class="terminal-bar"><span></span><span></span><span></span><em>pipeline</em></div>
+<pre>persona.md  ->  the only file you change per channel
+
+  <b>generate</b>   face-consistent stills + short clips (MCP video gen)
+  <b>edit</b>       agent-driven cut, captions, render (local editor)
+  <b>post</b>       finished reel  ->  human review gate
+
+<i>build the engine once, run many niches on it</i></pre>
+        </div>
+      </figure>
+      <div class="project-body">
+        <p class="reveal">Every niche-specific detail (the character, the voice, the angle, the visual rules) lives in one per-persona file the pipeline reads at run time, so launching a new channel is configuration, not a rewrite. The stages are split by cost and reliability: generation produces a face-consistent presenter from a reference image so the same character appears across every scene, a companion editor that Claude drives through tool calls handles the assembly, and a human gate sits before anything is posted.</p>
+        <p class="reveal">A teardown of real creators in the space taught me the counterintuitive part: what the presenter says drives results far more than raw generation quality. So the pipeline treats the script as the primary artifact, transcribing a strong in-niche reference and rewriting it with an LLM pre-loaded with the persona. The value is not any single AI model, it is the plumbing that chains a face-identity model, a video generator, a voice model and a programmatic editor into one flow, and the judgment about where to spend metered credits versus where to draft cheap.</p>
+        <ul class="skills reveal" aria-label="Skills this project proves">
+          <li>multi-tool AI orchestration</li><li>MCP media generation</li><li>identity-consistent generation</li><li>config-as-persona design</li><li>cost-aware pipelines</li><li>human-in-the-loop</li>
+        </ul>
+        <p class="depth reveal"><span class="depth-tag">multi-week build</span></p>
+        <p class="honest reveal"><strong>What it actually took.</strong> My first instinct was to chase perfect-looking footage, and that was the wrong instinct. The creators actually making this work spend their effort on the script and keep the generation cheap. Rebuilding the pipeline around that order, script first and generation rationed, was the real lesson.</p>
+        <p class="project-links reveal"><span class="muted">Private build.</span></p>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p><a href="../index.html#portfolio">&larr; Back to portfolio</a> · Designed and built with Claude.</p>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>

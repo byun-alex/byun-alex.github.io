@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Video Editor - Alex Byun</title>
+<meta name="description" content="A programmatic video editor an AI agent drives through tool calls: cut, caption, render.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<div class="glow-field" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+</div>
+
+<nav class="site-nav" id="site-nav">
+  <div class="container">
+    <a class="brand" href="../index.html#home">Alex Byun</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home">Home</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#process">Process</a></li>
+      <li><a class="active" href="../index.html#portfolio">Portfolio</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="detail-main">
+  <div class="container">
+    <a class="back-link" href="../index.html#portfolio">&larr; Back to portfolio</a>
+
+    <article class="project">
+      <p class="project-kicker reveal">AI Video Editor</p>
+      <h1 class="reveal">An editor an agent drives, not a human.</h1>
+      <p class="project-value reveal">Claude reads a brief and issues the whole edit as a sequence of tool calls: cut to the strong parts, caption, add motion graphics and B-roll, render. It is the automated assembly stage under my content pipelines.</p>
+      <figure class="project-visual reveal">
+        <div class="terminal" role="img" aria-label="An agent issuing edit operations as tool calls">
+          <div class="terminal-bar"><span></span><span></span><span></span><em>agent edit session</em></div>
+<pre>brief: 45s vertical cut, punchy, captions on
+
+  cut(segments=[strong parts])         <b>ok</b>
+  caption(style=bold, position=lower)  <b>ok</b>
+  broll(insert=generated clip via MCP) <b>ok</b>
+  render(1080x1920, h264)              <b>ok</b>
+  verify(against brief)                <b>pass</b>
+
+<i>the edit as a callable, verifiable operation</i></pre>
+        </div>
+      </figure>
+      <div class="project-body">
+        <p class="reveal">The generation step of AI content gets all the attention, but the editing step is where the manual hours actually go. This project attacks that. It exposes editing primitives (cut, caption, overlay, B-roll insertion, render) that the agent composes from a brief, so the assembly stage becomes an agent-callable, repeatable operation rather than an afternoon in a timeline app.</p>
+        <p class="reveal">Media generation is reached through MCP tool integrations, so the agent can call out for a generated clip mid-edit and fold the result straight into the cut. The output is a rendered video plus a verification pass that checks the result against the brief before it is accepted. It is the shared edit spine under my persona content pipeline: that project makes the footage, this one cuts it.</p>
+        <ul class="skills reveal" aria-label="Skills this project proves">
+          <li>agent tool-calling</li><li>MCP integration</li><li>programmatic media assembly</li><li>verification passes</li><li>workflow automation</li>
+        </ul>
+        <p class="depth reveal"><span class="depth-tag">multi-week build</span></p>
+        <p class="honest reveal"><strong>What it actually took.</strong> The hard shift was stopping thinking of editing as a creative act and starting to think of it as an API. Once the edit is a set of operations an agent can call and a verifier can check, a whole content pipeline stops needing a human in a timeline. Naming the primitives well was most of the work.</p>
+        <p class="project-links reveal"><span class="muted">Private build.</span></p>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p><a href="../index.html#portfolio">&larr; Back to portfolio</a> · Designed and built with Claude.</p>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>

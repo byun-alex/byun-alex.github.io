@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AlexOS - Alex Byun</title>
+<meta name="description" content="A local multi-agent operating system: Markdown-defined agents run in parallel as real headless Claude processes and debate in Mastermind rounds.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<div class="glow-field" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+</div>
+
+<nav class="site-nav" id="site-nav">
+  <div class="container">
+    <a class="brand" href="../index.html#home">Alex Byun</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home">Home</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#process">Process</a></li>
+      <li><a class="active" href="../index.html#portfolio">Portfolio</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="detail-main">
+  <div class="container">
+    <a class="back-link" href="../index.html#portfolio">&larr; Back to portfolio</a>
+
+    <article class="project">
+      <p class="project-kicker reveal">AlexOS</p>
+      <h1 class="reveal">Five AI agents that run my workspace in parallel.</h1>
+      <p class="project-value reveal">A local multi-agent operating system: agents defined in Markdown run as real headless Claude processes, debate a problem over rounds, and feed a shared memory only the server is allowed to write.</p>
+      <figure class="project-visual reveal">
+        <div class="terminal" role="img" aria-label="Five agents running in parallel with a Mastermind round">
+          <div class="terminal-bar"><span></span><span></span><span></span><em>alexos - roster</em></div>
+<pre>chief-of-staff  research  builder  content  accountability
+      |            |         |         |          |
+      +-------- Mastermind round (each sees the others) --------+
+                          |
+                    chair synthesises  ->  shared memory
+
+<i>agents request actions; only the server writes memory + disk</i></pre>
+        </div>
+      </figure>
+      <div class="project-body">
+        <p class="reveal">A Node server spawns five Markdown-defined agents (chief-of-staff, research, builder, content, accountability) as real headless Claude processes. They run concurrently against my actual workspace, with live status streamed over WebSocket to a React front end and cost tracked per run. A Mastermind mode has the panel debate a problem over several rounds, each agent seeing the others' replies, before a chair synthesises the conclusion into shared memory.</p>
+        <p class="reveal">The design is security-first, and that is the part I would defend hardest. Agents can only request actions; the server alone writes memory and disk. Instructions are not capabilities, so a persona cannot be talked into corrupting state, because it never had the reach to do so. Scope the tools, not just the prompt.</p>
+        <ul class="skills reveal" aria-label="Skills this project proves">
+          <li>multi-agent orchestration</li><li>parallel process management</li><li>WebSocket streaming</li><li>capability-based security</li><li>React + Node</li>
+        </ul>
+        <p class="depth reveal"><span class="depth-tag">multi-week build</span></p>
+        <p class="honest reveal"><strong>What it actually took.</strong> The naive version lets every agent write to disk and it works right up until one goes off the rails. Rebuilding it so the server is the only writer felt like extra plumbing at the time. It is the single decision that makes the whole thing safe to leave running, and it came straight from getting burned by the loose version first.</p>
+        <p class="project-links reveal"><a href="https://github.com/byun-alex/alexos" target="_blank" rel="noopener">github.com/byun-alex/alexos &rarr;</a></p>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p><a href="../index.html#portfolio">&larr; Back to portfolio</a> · Designed and built with Claude.</p>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>

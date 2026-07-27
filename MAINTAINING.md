@@ -10,7 +10,7 @@ Alex's personal-brand site first, recruiter-ready second. It shows his projects 
 
 - **One `index.html` with five views**, switched by JS hash routing: `#home`, `#about`, `#process`, `#portfolio`, `#contact`. A view is a `<section class="view" data-view="NAME">`; `main.js` toggles `.active` on the section matching `location.hash` (default `home`). Direct links like `/#portfolio` work; so do back/forward buttons.
 - **A fixed top nav** (name left, links right, hamburger under 760px). Active link is synced by `main.js` via `data-view` attributes.
-- **Portfolio view is a compact card grid.** Each card links to a real standalone page in `portfolio/<slug>.html` with the full product-launch writeup. Detail pages share `../styles.css` and `../main.js` and copy-paste the nav header (no build step, so shared chrome is duplicated by hand across the 5 detail pages; editing the nav means editing 6 files).
+- **Portfolio view is a compact card grid.** Each card links to a real standalone page in `portfolio/<slug>.html` with the full product-launch writeup. Detail pages share `../styles.css` and `../main.js` and copy-paste the nav header (no build step, so shared chrome is duplicated by hand across every detail page; editing the nav means editing `index.html` plus all `portfolio/*.html`).
 - **Process view** holds the working-method cards, the build-log timeline, and the case studies. **Portfolio stays purely the project grid.**
 
 ## Design philosophy (the WHY, hold this line)
@@ -37,12 +37,22 @@ Alex's personal-brand site first, recruiter-ready second. It shows his projects 
 ├── main.js               hash router, scroll reveals, mobile nav toggle. Nothing else may run.
 ├── Alex-Byun-Resume.pdf  the downloadable resume (master lives in Alex's vault)
 ├── MAINTAINING.md        this file
-├── portfolio/
+├── portfolio/            one page per project (grid teaser links here)
+│   ├── trading-scanner.html      (private build, no repo link)
+│   ├── alexos.html
+│   ├── braindock.html            (commercial build, no live link on-site yet)
+│   ├── overnight-agent.html
+│   ├── avatar-factory.html       (private build, no repo link)
+│   ├── ai-video-editor.html      (private build, no repo link)
+│   ├── morning-brief-agent.html
+│   ├── telegram-idea-capture.html
 │   ├── brain-dashboard.html
 │   ├── life-planner.html
 │   ├── content-factory.html
 │   ├── session-continuity.html
-│   └── job-ad-extractor.html
+│   ├── job-ad-extractor.html
+│   ├── log-triage.html
+│   └── murmur.html
 └── assets/
     ├── brain-dashboard.png
     └── life-planner.png

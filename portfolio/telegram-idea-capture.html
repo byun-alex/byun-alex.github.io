@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>telegram-idea-capture - Alex Byun</title>
+<meta name="description" content="A zero-loss idea inbox: a Cloudflare Worker and KV webhook that captures Telegram messages instantly, even with my PC off.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<div class="glow-field" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+</div>
+
+<nav class="site-nav" id="site-nav">
+  <div class="container">
+    <a class="brand" href="../index.html#home">Alex Byun</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home">Home</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#process">Process</a></li>
+      <li><a class="active" href="../index.html#portfolio">Portfolio</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="detail-main">
+  <div class="container">
+    <a class="back-link" href="../index.html#portfolio">&larr; Back to portfolio</a>
+
+    <article class="project">
+      <p class="project-kicker reveal">telegram-idea-capture</p>
+      <h1 class="reveal">An idea inbox that never drops a thought.</h1>
+      <p class="project-value reveal">Text a link or an idea to a bot and a Cloudflare Worker plus KV webhook captures it durably, even with my PC off, until I pull it and file it. Zero loss by design.</p>
+      <figure class="project-visual reveal">
+        <div class="terminal" role="img" aria-label="A message captured by the webhook and acknowledged">
+          <div class="terminal-bar"><span></span><span></span><span></span><em>capture webhook</em></div>
+<pre>you  ->  bot:  "idea: config-swappable content engine"
+
+  webhook (Cloudflare Worker)   received
+  secret-token auth             ok
+  dedupe                        new
+  KV write                      stored  <b>even with my PC off</b>
+
+bot  ->  you:  saved. pull it later with /ingest
+<i>captured at the edge, filed when I am back at the desk</i></pre>
+        </div>
+      </figure>
+      <div class="project-body">
+        <p class="reveal">The problem this solves is the thought that arrives when you are nowhere near your machine and is gone by the time you are. A Telegram bot points at a Cloudflare Worker, which validates a secret token, dedupes, and writes the message into KV storage at the edge. Because it runs on Cloudflare and not my computer, it captures instantly and durably whether my PC is on or not.</p>
+        <p class="reveal">Later, an ingest workflow pulls each stored item and files the substance into the right place. The design goal was zero loss: an idea captured is an idea that survives until I deal with it, no app to open, no note that never gets written. It is the front door to a larger capture-and-file system I use daily.</p>
+        <ul class="skills reveal" aria-label="Skills this project proves">
+          <li>Cloudflare Workers</li><li>KV storage</li><li>webhooks</li><li>edge functions</li><li>secret-token auth</li><li>dedupe</li>
+        </ul>
+        <p class="depth reveal"><span class="depth-tag">living system</span></p>
+        <p class="honest reveal"><strong>What it actually took.</strong> The whole point was durability, so the build only mattered once I stopped testing it at my desk and started firing ideas at it from my phone on the train. Running the capture at the edge instead of on my own machine is what makes it trustworthy: the one place a captured thought is never lost is the place that is always on.</p>
+        <p class="project-links reveal"><a href="https://github.com/byun-alex/telegram-idea-capture" target="_blank" rel="noopener">github.com/byun-alex/telegram-idea-capture &rarr;</a></p>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p><a href="../index.html#portfolio">&larr; Back to portfolio</a> · Designed and built with Claude.</p>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>

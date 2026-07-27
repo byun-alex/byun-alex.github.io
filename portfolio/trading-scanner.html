@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trading Scanner - Alex Byun</title>
+<meta name="description" content="A real-time multi-timeframe market scanner with the strategy logic fully decoupled from the data source.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<div class="glow-field" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+</div>
+
+<nav class="site-nav" id="site-nav">
+  <div class="container">
+    <a class="brand" href="../index.html#home">Alex Byun</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home">Home</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#process">Process</a></li>
+      <li><a class="active" href="../index.html#portfolio">Portfolio</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="detail-main">
+  <div class="container">
+    <a class="back-link" href="../index.html#portfolio">&larr; Back to portfolio</a>
+
+    <article class="project">
+      <p class="project-kicker reveal">Trading Scanner</p>
+      <h1 class="reveal">A scanner that keeps the strategy and the data apart.</h1>
+      <p class="project-value reveal">It watches thousands of symbols across multiple timeframes and flags high-probability breakout setups the moment they form, live, on an ordinary PC with no paid data feed.</p>
+      <figure class="project-visual reveal">
+        <div class="terminal" role="img" aria-label="Scanner gate status for a symbol">
+          <div class="terminal-bar"><span></span><span></span><span></span><em>scanner - live</em></div>
+<pre>market: crypto (live)   |   symbols watched: 2,800+   |   mode: A (scalp)
+
+  BB alignment      <b>pass</b>
+  breakout candle   <b>pass</b>
+  volume spike      <b>pass</b>
+  MA alignment      <b>pass</b>
+  <b>&gt;&gt; SIGNAL</b>  logged + charted + pushed
+
+<i>same engine, swap one adapter, and it runs a whole second market</i></pre>
+        </div>
+      </figure>
+      <div class="project-body">
+        <p class="reveal">The strategy is proprietary, so the interesting part to show is the engineering. The core holds the indicators, the gate logic and the signal detection, and it knows nothing about where the candles come from. Each data feed is an adapter behind one interface, so a crypto exchange and an equities market both plug into the exact same engine without a single change to strategy code. That was the one decision locked on day one, and it paid for itself the day a second market was added: the whole thing was an adapter, not a rewrite.</p>
+        <p class="reveal">It is built test-first, phase by phase. A phase is not done until its tests pass, and the suite now runs to 140-plus cases over the indicator math and the multi-gate logic. Every locked choice is written up as a short decision record with its reasoning, so a cold session can continue the build identically instead of re-arguing settled questions. Rather than gate the project behind a paid market-data API, I reverse-engineered a public source into a working adapter that pulls a full market of listings plus intraday data, live, for free.</p>
+        <ul class="skills reveal" aria-label="Skills this project proves">
+          <li>ports-and-adapters architecture</li><li>real-time systems</li><li>test-driven development</li><li>API reverse-engineering</li><li>decision-record discipline</li><li>Python</li>
+        </ul>
+        <p class="depth reveal"><span class="depth-tag">multi-week build</span></p>
+        <p class="honest reveal"><strong>What it actually took.</strong> The temptation on a project like this is to weld the strategy straight onto the first data feed that works, because it is faster on day one. I made myself keep them apart even when it felt like overkill, and the discipline only looked smart later. Holding an architecture line before you can see the payoff is the actual skill here, not the indicators. This is a private build, so the strategy details stay off the page.</p>
+        <p class="project-links reveal"><span class="muted">Private build.</span></p>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p><a href="../index.html#portfolio">&larr; Back to portfolio</a> · Designed and built with Claude.</p>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>

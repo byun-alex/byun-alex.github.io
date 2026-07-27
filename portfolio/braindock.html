@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Braindock - Alex Byun</title>
+<meta name="description" content="A paid digital product shipped end to end, plus a pipeline that renders eight branded ad reels from one JSON spec.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<div class="glow-field" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+</div>
+
+<nav class="site-nav" id="site-nav">
+  <div class="container">
+    <a class="brand" href="../index.html#home">Alex Byun</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home">Home</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#process">Process</a></li>
+      <li><a class="active" href="../index.html#portfolio">Portfolio</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="detail-main">
+  <div class="container">
+    <a class="back-link" href="../index.html#portfolio">&larr; Back to portfolio</a>
+
+    <article class="project">
+      <p class="project-kicker reveal">Braindock</p>
+      <h1 class="reveal">A digital product, and the factory that makes its ads.</h1>
+      <p class="project-value reveal">I shipped a paid product end to end, page to checkout to delivery, then built a pipeline that renders eight branded promo reels from a single JSON spec.</p>
+      <figure class="project-visual reveal">
+        <div class="terminal" role="img" aria-label="One content spec compiling into eight rendered reels">
+          <div class="terminal-bar"><span></span><span></span><span></span><em>reel factory</em></div>
+<pre>input:  one brief.json  (hooks, captions, structure)
+
+  render B01 ... <b>done</b>      render B05 ... <b>done</b>
+  render B02 ... <b>done</b>      render B06 ... <b>done</b>
+  render B03 ... <b>done</b>      render B07 ... <b>done</b>
+  render B04 ... <b>done</b>      render B08 ... <b>done</b>
+
+output: <b>8 branded reels</b>  ->  human QA gate  ->  post
+<i>one spec in, a week of on-brand content out</i></pre>
+        </div>
+      </figure>
+      <div class="project-body">
+        <p class="reveal">The product is a structured, template-driven knowledge system sold as a portable folder, built that way on purpose so it outlives any single AI subscription. Around it I built the full self-serve funnel: a landing page, email capture, checkout on every call to action, and gated delivery of the download. The whole checkout-to-delivery path was rehearsed in test mode before the live payment link went on, and the deploy sat behind a multi-point verification checklist.</p>
+        <p class="reveal">The part I am proudest of is the ad-reel factory. Instead of editing promos by hand, one JSON spec defines the hooks, captions and structure, and the system compiles and renders each variant programmatically to a locked brand voice and visual style, then hands them back for a human QA pass. It turns "make an ad" into "write one spec, get a week of content," which is the same instinct the rest of my work runs on: find the repetitive manual process and make it a documented, config-driven pipeline.</p>
+        <ul class="skills reveal" aria-label="Skills this project proves">
+          <li>end-to-end product shipping</li><li>conversion funnel</li><li>payment integration</li><li>programmatic video rendering</li><li>spec-driven automation</li><li>brand-voice systemization</li>
+        </ul>
+        <p class="depth reveal"><span class="depth-tag">multi-week build</span></p>
+        <p class="honest reveal"><strong>What it actually took.</strong> Shipping the product was not the hard part; getting a stranger to trust a checkout was. The reel factory came out of a blunt realisation that I could not out-post a hand-editing schedule, so the content had to be manufactured, not made. Building the machine that makes the ads turned out to be more valuable than any single ad.</p>
+        <p class="project-links reveal"><span class="muted">Commercial build. Live product link available on request.</span></p>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p><a href="../index.html#portfolio">&larr; Back to portfolio</a> · Designed and built with Claude.</p>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>
