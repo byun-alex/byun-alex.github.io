@@ -45,6 +45,8 @@
       a.classList.toggle("active", a.getAttribute("data-view") === name);
     });
     closeMenu();
+    // Jumps, never animates: CSS scroll-behavior is `auto`, and animating this
+    // is what made view switching feel slow.
     window.scrollTo(0, 0);
   }
 

@@ -118,27 +118,95 @@
     </div>
 
     <h2 class="reveal">The build log.</h2>
-    <p class="section-sub reveal">Dated, public, and honest. This is the pace I actually ship at.</p>
-    <ol class="timeline reveal">
-      <li><time>27 Jul 2026</time><span>overnight-agent went public: a verify-gated pipeline for unattended AI runs, built around five named failure modes.</span></li>
-      <li><time>Jul 2026</time><span>Trading Scanner reached 140+ passing tests on a ports-and-adapters core, with a second market added as an adapter, not a rewrite.</span></li>
-      <li><time>Jul 2026</time><span>Braindock shipped: a paid product end to end, plus a reel factory that renders eight branded ads from one JSON spec.</span></li>
-      <li><time>Jul 2026</time><span>Content Factory grew to two live YouTube channels and real motion video, with per-channel OAuth publishing.</span></li>
-      <li><time>6 Jul 2026</time><span>AlexOS went public in beta: five Markdown-defined agents running in parallel as real headless Claude processes.</span></li>
-      <li><time>9 Jul 2026</time><span>Murmur shipped: local dictation for Windows, on-device Whisper, live-tested and a real input-layer bug fixed.</span></li>
-      <li><time>6 Jul 2026</time><span>This site, version 2: dark redesign, navigation, and a compact portfolio with a page per project.</span></li>
-      <li><time>5 Jul 2026</time><span>log-triage shipped: a zero-dependency CLI that turns a messy log into a ranked, explained diagnosis.</span></li>
-      <li><time>5 Jul 2026</time><span>This site, version 1: designed, written and deployed in a day, with its own maintenance handbook.</span></li>
-      <li><time>4 Jul 2026</time><span>Telegram capture pipeline went live: a Cloudflare Worker webhook now catches ideas I send from my phone.</span></li>
-      <li><time>3 Jul 2026</time><span>Interactive Life Planner v1 shipped: week grid, did-you-do-it loop, AI brain-dump planning.</span></li>
-      <li><time>28 Jun 2026</time><span>Built my first autonomous cloud agents: a daily Morning Brief email and a Sunday Weekly Wrap, running on a schedule without me.</span></li>
-      <li><time>27 Jun 2026</time><span>planner MVP shipped the same day it was scoped: one self-contained HTML file.</span></li>
-      <li><time>26 Jun 2026</time><span>job-ad-extractor shipped: prompt versioning, validation gate, eval harness.</span></li>
-      <li><time>23 Jun 2026</time><span>claude-session-continuity open-sourced, then used the portfolio it documents to apply for an AI internship.</span></li>
-      <li><time>22 Jun 2026</time><span>Brain Dashboard open-sourced as a public repo.</span></li>
-      <li><time>21 Jun 2026</time><span>Claude Journey post #1 live on X and Instagram: the start of building in public.</span></li>
-      <li><time>19 Jun 2026</time><span>Built the Brain Dashboard: the local Jarvis home base everything else runs from.</span></li>
-    </ol>
+    <p class="section-sub reveal">Dated, public, and honest. This is the pace I actually ship at. Open a month for the full list.</p>
+
+    <div class="log">
+
+      <details class="log-month reveal" open>
+        <summary>
+          <span class="log-head">
+            <span class="log-when">August 2026</span>
+            <span class="log-count">6 entries</span>
+          </span>
+          <span class="log-peek">
+            <span>An agency lane: a live business site audited and replaced with a 5-page demo in a day</span>
+            <span>The avatar content pipeline written up and open-sourced as a case study repo</span>
+            <span>Braindock got a carousel render pipeline with an automated claim guard</span>
+          </span>
+          <span class="log-more"></span>
+        </summary>
+        <ol class="timeline">
+          <li><time>10 Aug 2026</time><span>Web agency lane opened: audited a live business site (27 concrete issues, no working contact form), then built a 5-page replacement demo and the agency's own site the same day.</span></li>
+          <li><time>10 Aug 2026</time><span>Braindock carousels built on a new render pipeline, with a claim guard that blocks any statement I cannot back with a real number.</span></li>
+          <li><time>7 Aug 2026</time><span>ai-avatar-pipeline open-sourced: the whole avatar content pipeline written up as a public case study, with third-party parts credited rather than claimed.</span></li>
+          <li><time>3 Aug 2026</time><span>Two videos shipped in a day across both channels; the old boomerang loop retired for crossfade-only assembly after the seam showed on a big screen.</span></li>
+          <li><time>2 Aug 2026</time><span>Braindock funnel diagnosed properly: 67k views and no sales traced to a profile that sold nothing. Guide and PDF rebuilt and redeployed.</span></li>
+          <li><time>1 Aug 2026</time><span>First avatar reel built end to end: stills, motion, ffmpeg overlays, delivered to my phone for review.</span></li>
+        </ol>
+      </details>
+
+      <details class="log-month reveal">
+        <summary>
+          <span class="log-head">
+            <span class="log-when">July 2026</span>
+            <span class="log-count">19 entries</span>
+          </span>
+          <span class="log-peek">
+            <span>Root-caused a live duplicate-message incident on an Instagram automation serving a 57k-view post</span>
+            <span>Self-hosted that automation across Vercel, Railway, Postgres and Redis, replacing a paid SaaS</span>
+            <span>Trading Scanner added a second market as an adapter, not a rewrite</span>
+          </span>
+          <span class="log-more"></span>
+        </summary>
+        <ol class="timeline">
+          <li><time>31 Jul 2026</time><span>Root-caused a live incident on my Instagram automation: duplicate replies and DMs going out on a post with 57k views, every one logging as failed. The cause was not in my code. A second tool was still connected to the same account, double-firing on every comment, and because Instagram allows exactly one private reply per comment, its message landed first and mine came back as an API error. The tell was a missing emoji on the duplicate's button. Two real bugs found on the way and fixed: a retry storm, and a race between the webhook and the polling job claiming the same comment.</span></li>
+          <li><time>31 Jul 2026</time><span>Two weeks of channel analytics turned into a strategy: subjects and titles now picked from what the numbers say, not from taste.</span></li>
+          <li><time>30 Jul 2026</time><span>Self-hosted that automation end to end instead of paying for it: web app on Vercel, queue worker plus Postgres and Redis on Railway, transactional email and a published Meta app. The worker is a separate service because a queue consumer has to stay awake and serverless sleeps. Four deploy failures worth remembering, including a build that pruned the runtime dependencies and an encryption key that has to be byte-identical across two services or every message fails to decrypt.</span></li>
+          <li><time>30 Jul 2026</time><span>Fixed a product ladder in code rather than copy: the free tier was cannibalising the paid one, so the rebuild shipped with seven guards in the verification script that fail the build if it ever happens again.</span></li>
+          <li><time>29 Jul 2026</time><span>Telegram capture got per-project routing: replies land in the right topic instead of one flat inbox.</span></li>
+          <li><time>27 Jul 2026</time><span>overnight-agent went public: a verify-gated pipeline for unattended AI runs, built around five named failure modes.</span></li>
+          <li><time>27 Jul 2026</time><span>Eight new project pages deployed to this site, taking the portfolio from seven builds to fifteen.</span></li>
+          <li><time>24 Jul 2026</time><span>Per-channel OAuth clients killed a recurring token-expiry failure for good, instead of re-authorising every few days.</span></li>
+          <li><time>17 Jul 2026</time><span>Braindock v1 went live and purchasable: payment wired, site deployed, the whole path from ad to download working.</span></li>
+          <li><time>17 Jul 2026</time><span>Trading Scanner hit 143 passing tests with the signal gates reordered to match how the strategy is actually traded.</span></li>
+          <li><time>16 Jul 2026</time><span>A 134-lesson trading course scraped and distilled into 18 concrete scanner rules: research turned into something executable.</span></li>
+          <li><time>15 Jul 2026</time><span>overnight-agent proven on two live runs: verify-gated, reporting back to my phone when it finished.</span></li>
+          <li><time>14 Jul 2026</time><span>A mobile app built to a working end-to-end state in one session: forked, wired to a backend, 11 of 11 tests green.</span></li>
+          <li><time>13 Jul 2026</time><span>Trading Scanner added the Korean market with no API key and no rewrite: 2,768 stocks behind a new adapter, 117 tests.</span></li>
+          <li><time>12 Jul 2026</time><span>Whole-workspace reorganisation: one roadmap, one to-do list, one plain-English explainer for a system that had grown past what I could hold in my head.</span></li>
+          <li><time>9 Jul 2026</time><span>Murmur shipped: local dictation for Windows, on-device Whisper, live-tested and a real input-layer bug fixed.</span></li>
+          <li><time>8 Jul 2026</time><span>First YouTube channel launched, with the first long-form video published through the pipeline that builds it.</span></li>
+          <li><time>6 Jul 2026</time><span>AlexOS went public in beta: five Markdown-defined agents running in parallel as real headless Claude processes.</span></li>
+          <li><time>5 Jul 2026</time><span>log-triage shipped and this site went live: a zero-dependency CLI that ranks and explains a messy log, and a portfolio built in a day.</span></li>
+        </ol>
+      </details>
+
+      <details class="log-month reveal">
+        <summary>
+          <span class="log-head">
+            <span class="log-when">June 2026</span>
+            <span class="log-count">8 entries</span>
+          </span>
+          <span class="log-peek">
+            <span>Brain Dashboard built and open-sourced: the home base everything else runs from</span>
+            <span>My first autonomous cloud agents, running on a schedule without me</span>
+            <span>Started building in public, with a date on everything</span>
+          </span>
+          <span class="log-more"></span>
+        </summary>
+        <ol class="timeline">
+          <li><time>29 Jun 2026</time><span>Telegram idea-bot created so an idea I have away from the desk survives the walk back to it.</span></li>
+          <li><time>28 Jun 2026</time><span>Built my first autonomous cloud agents: a daily Morning Brief email and a Sunday Weekly Wrap, running on a schedule without me.</span></li>
+          <li><time>27 Jun 2026</time><span>planner MVP shipped the same day it was scoped: one self-contained HTML file.</span></li>
+          <li><time>26 Jun 2026</time><span>job-ad-extractor shipped: prompt versioning, a validation gate, and an eval harness around a single model call.</span></li>
+          <li><time>23 Jun 2026</time><span>claude-session-continuity open-sourced: durable memory for a tool that forgets everything between sessions.</span></li>
+          <li><time>22 Jun 2026</time><span>Brain Dashboard open-sourced as a public repo.</span></li>
+          <li><time>21 Jun 2026</time><span>First build-in-public post live on X and Instagram: the start of putting a date on everything.</span></li>
+          <li><time>19 Jun 2026</time><span>Built the Brain Dashboard: the local Jarvis home base everything else runs from.</span></li>
+        </ol>
+      </details>
+
+    </div>
 
     <h2 class="reveal">The systems behind the tools.</h2>
     <p class="section-sub reveal">These run my actual life, so the content stays private. The architecture is public and written up as case studies.</p>
@@ -291,7 +359,7 @@
 
 <footer>
   <div class="container">
-    <p>Designed and built with Claude. Maintained the same way, by design: see <a href="https://github.com/byun-alex/byun-alex.github.io/blob/main/MAINTAINING.md" target="_blank" rel="noopener">MAINTAINING.md</a>.</p>
+    <p>Alex Byun &middot; Sydney &middot; 2026</p>
   </div>
 </footer>
 
