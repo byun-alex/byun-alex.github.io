@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>todo-viz - Alex Byun</title>
+<meta name="description" content="A clickable checklist that writes every tick straight back into your Markdown to-do file, with atomic writes and a stale-edit conflict guard.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<div class="glow-field" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+</div>
+
+<nav class="site-nav" id="site-nav">
+  <div class="container">
+    <a class="brand" href="../index.html#home">Alex Byun</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home">Home</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#process">Process</a></li>
+      <li><a class="active" href="../index.html#portfolio">Portfolio</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="detail-main">
+  <div class="container">
+    <a class="back-link" href="../index.html#portfolio">&larr; Back to portfolio</a>
+
+    <article class="project">
+      <p class="project-kicker reveal">todo-viz</p>
+      <h1 class="reveal">A checklist that writes straight back into the file.</h1>
+      <p class="project-value reveal">I keep my whole task list in one Markdown file. This turns it into a clickable checklist in the browser, and every tick lands back in that same file. No database, no copy, no framework. The file stays the single source of truth, so anything else that reads it sees the change with no extra step.</p>
+      <figure class="project-visual reveal">
+        <div class="terminal" role="img" aria-label="Terminal showing a task line changing from unchecked to checked in the source file">
+          <div class="terminal-bar"><span></span><span></span><span></span><em>To-Dos.md</em></div>
+<pre>  before  <i>- [ ] Ship the todo-viz repo</i>
+  click   <b>&#8594; PATCH /api/todo { line: 14, checked: true }</b>
+  after   <b>- [x] 2026-08-16 &#8212; Ship the todo-viz repo</b>
+
+<i>only the checkbox flips, date stamped, nothing else in the file is touched</i></pre>
+        </div>
+      </figure>
+      <div class="project-body">
+        <p class="reveal">The whole app is a small Python standard-library server plus one HTML page. It parses the Markdown into tasks, serves a checklist with a pinned "now" panel and section filters, and writes changes back through a tiny JSON API. Ticking stages a preview first, so nothing is saved until you hit Apply, which came out of an early version applying a test tick by accident.</p>
+        <p class="reveal">The interesting part is writing into a file a human or another tool may edit at the same moment. Every write re-reads the file fresh, matches the target line by both its index and its exact text, and rejects with a conflict error if the file has shifted, instead of clobbering the wrong line. The change is a single checkbox flip plus an optional date stamp, written atomically through a temp file and a rename. No reflow, no re-sort, no stray whitespace.</p>
+        <ul class="skills reveal" aria-label="Skills this project proves">
+          <li>Python standard library</li><li>atomic writes</li><li>optimistic concurrency</li><li>Markdown parsing</li><li>vanilla JS</li><li>zero dependencies</li>
+        </ul>
+        <p class="depth reveal"><span class="depth-tag">weekend hack</span></p>
+        <p class="honest reveal"><strong>What it actually took.</strong> The easy version writes on every click and eventually corrupts the file the first time two things edit it at once. The real work was the safe-write path: read fresh, verify the line still matches, reject on conflict, write atomically. It is a small tool, but it treats a plain text file the way you would treat a shared record, because that is exactly what it is.</p>
+        <p class="project-links reveal"><a href="https://github.com/byun-alex/todo-viz" target="_blank" rel="noopener">github.com/byun-alex/todo-viz &rarr;</a></p>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p><a href="../index.html#portfolio">&larr; Back to portfolio</a></p>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>
