@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instagram Comment Gate - Alex Byun</title>
+<meta name="description" content="Self-hosted an Instagram comment-to-DM automation across Vercel, Railway, Postgres and Redis, then root-caused a live duplicate-message incident on a post with 57,000 views.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<div class="glow-field" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+</div>
+
+<nav class="site-nav" id="site-nav">
+  <div class="container">
+    <a class="brand" href="../index.html#home">Alex Byun</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home">Home</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#process">Process</a></li>
+      <li><a class="active" href="../index.html#portfolio">Portfolio</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="detail-main">
+  <div class="container">
+    <a class="back-link" href="../index.html#portfolio">&larr; Back to portfolio</a>
+
+    <article class="project">
+      <p class="project-kicker reveal">Instagram Comment Gate</p>
+      <h1 class="reveal">I stopped paying for the SaaS and ran it myself.</h1>
+      <p class="project-value reveal">When a post does well, hundreds of people comment a keyword and every one of them expects a link in their DMs a second later. The tool that does this bills per person contacted, so it gets more expensive exactly when it works. I took an open-source clone of that one feature, deployed the whole thing myself, and ran it live against real traffic for about five dollars a month with no cap.</p>
+      <figure class="project-visual reveal">
+        <div class="terminal" role="img" aria-label="Terminal showing the duplicate-message incident, its cause, and the fix">
+          <div class="terminal-bar"><span></span><span></span><span></span><em>incident &#8212; 31 Jul</em></div>
+<pre>  symptom   duplicate public replies + duplicate DMs
+            every send logging <b>FAILED</b>, on a post at 57k views
+
+  the tell  the duplicate's button was missing an emoji
+            <i>my template always sends that emoji. so it was not mine.</i>
+
+  cause     a second tool still connected to the same account
+            IG allows one private reply per comment. theirs landed first.
+            mine came back Error 1 and logged FAILED.
+
+  fix       disconnect it. everything went green.
+  found     on the way: a retry storm and a webhook/poll race</pre>
+        </div>
+      </figure>
+      <div class="project-body">
+        <p class="reveal">The deployment is two services on purpose. The web app runs on Vercel and handles the dashboard, the OAuth callback and the incoming webhooks. The queue worker runs on Railway alongside Postgres and Redis, because a queue consumer has to stay awake and a serverless function sleeps between requests. Four deployment failures were worth keeping: Prisma and tsx had to move into runtime dependencies because the build was pruning dev deps, a pinned build and start command was needed to stop the platform launching the website instead of the worker, the encryption key has to be byte-identical across both services or every send fails to decrypt, and the two datastores each expose an internal and a public URL that must be matched to the right consumer or the app hangs forever.</p>
+        <p class="reveal">Then it went live and broke. The interesting part is that the cause was not in the code at all, and the evidence that proved it was a missing emoji on a button. Once I knew a second tool was double-firing, disconnecting it fixed the symptom. But the investigation, run against the live database with a temporary read-only script, surfaced two genuine bugs underneath: a retry storm, where failed comment jobs retried three times and each retry sent again, and a race where the webhook and the five-minute reconciliation poll could both claim the same comment at worker concurrency five. The insert into the send log is now the atomic claim, with a lease on pending rows. Both went back to my fork as fixes.</p>
+        <p class="reveal">The lesson generalises past this stack: when an automation double-fires, check that nothing else is connected to the same account doing the same job before you touch a line of code. A second tool leaves no trace inside the first one's logs.</p>
+        <ul class="skills reveal" aria-label="Skills this project proves">
+          <li>production incident root-cause</li><li>queue workers</li><li>Postgres + Redis</li><li>concurrency and idempotency</li><li>OAuth and webhooks</li><li>multi-service deployment</li>
+        </ul>
+        <p class="depth reveal"><span class="depth-tag">two-day build, live since</span></p>
+        <p class="honest reveal"><strong>What it actually took.</strong> I spent the first stretch of the incident reading my own code, because that is where you look when your thing misbehaves. It was the wrong place, and the thing that turned it around was noticing a detail that could not have come from my template. Reading the evidence for what it was, rather than for what I expected it to say, was the whole job.</p>
+        <p class="project-links reveal"><span class="muted">The application is <a href="https://github.com/diwenne/openreply" target="_blank" rel="noopener">diwenne/openreply</a>, not my build. Mine is the deployment and the fixes on <a href="https://github.com/tradealex2288-star/openreply" target="_blank" rel="noopener">my fork</a>.</span></p>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p><a href="../index.html#portfolio">&larr; Back to portfolio</a></p>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>

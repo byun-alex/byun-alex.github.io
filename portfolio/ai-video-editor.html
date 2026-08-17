@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Video Editor - Alex Byun</title>
-<meta name="description" content="A programmatic video editor an AI agent drives through tool calls: cut, caption, render.">
+<title>Reel Compiler - Alex Byun</title>
+<meta name="description" content="An ad-reel factory that compiles words in a JSON file into finished vertical reels, with a guard that refuses to render an unprovable claim.">
 <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
@@ -35,32 +35,33 @@
     <a class="back-link" href="../index.html#portfolio">&larr; Back to portfolio</a>
 
     <article class="project">
-      <p class="project-kicker reveal">AI Video Editor</p>
-      <h1 class="reveal">An editor an agent drives, not a human.</h1>
-      <p class="project-value reveal">Claude reads a brief and issues the whole edit as a sequence of tool calls: cut to the strong parts, caption, add motion graphics and B-roll, render. It is the automated assembly stage under my content pipelines.</p>
+      <p class="project-kicker reveal">Reel Compiler</p>
+      <h1 class="reveal">Ad reels compiled from a text file, not cut by hand.</h1>
+      <p class="project-value reveal">The format my product ads use needs one or two posts a day, and every reel is the same video with different words. So the words became data and the video became code. I write the lines into a JSON file, run one command, and finished vertical mp4s come out. The tenth reel costs the same as the first.</p>
       <figure class="project-visual reveal">
-        <div class="terminal" role="img" aria-label="An agent issuing edit operations as tool calls">
-          <div class="terminal-bar"><span></span><span></span><span></span><em>agent edit session</em></div>
-<pre>brief: 45s vertical cut, punchy, captions on
+        <div class="terminal" role="img" aria-label="Terminal showing a reel batch compiling from JSON into rendered mp4 files, with one reel rejected by the claim guard">
+          <div class="terminal-bar"><span></span><span></span><span></span><em>build-reels.mjs</em></div>
+<pre>  batch.json  <i>18 reels queued</i>
 
-  cut(segments=[strong parts])         <b>ok</b>
-  caption(style=bold, position=lower)  <b>ok</b>
-  broll(insert=generated clip via MCP) <b>ok</b>
-  render(1080x1920, h264)              <b>ok</b>
-  verify(against brief)                <b>pass</b>
+  claim guard   BrainB07  <b>REJECT</b>  "12k followers"
+                <i>a figure a buyer reads as proof, and I cannot back it</i>
+  claim guard   17 others          <b>pass</b>
+  compile       Remotion           <b>ok</b>
+  render        1080x1920 h264     <b>ok</b>
 
-<i>the edit as a callable, verifiable operation</i></pre>
+<i>out/ &#8212; 17 mp4s. the rejected one never rendered.</i></pre>
         </div>
       </figure>
       <div class="project-body">
-        <p class="reveal">The generation step of AI content gets all the attention, but the editing step is where the manual hours actually go. This project attacks that. It exposes editing primitives (cut, caption, overlay, B-roll insertion, render) that the agent composes from a brief, so the assembly stage becomes an agent-callable, repeatable operation rather than an afternoon in a timeline app.</p>
-        <p class="reveal">Media generation is reached through MCP tool integrations, so the agent can call out for a generated clip mid-edit and fold the result straight into the cut. The output is a rendered video plus a verification pass that checks the result against the brief before it is accepted. It is the shared edit spine under my persona content pipeline: that project makes the footage, this one cuts it.</p>
+        <p class="reveal">The whole design lives in one Remotion component, written once. Everything that changes between reels sits in <code>batch.json</code>: the lines on screen, where the stanza breaks go, which footage bed to use, how many frames into that clip to start so two reels on the same bed do not look identical, and the caption. The build script reads the list, compiles, and renders. The alternative was a separate video file per reel, which is copy-paste with a typo risk and gets worse every time you make one.</p>
+        <p class="reveal">The part I care about is the claim guard. An ad is the one place a made-up number is unrecoverable, so the compiler refuses to render any reel whose text carries a figure a buyer could read as proof: a price paired with a volume, a follower or view count, a bare <code>NNk</code>. It fails the build with the offending line rather than warning, because a warning in a batch of eighteen gets scrolled past. The same guard was later ported to the carousel pipeline and hardened there against a table of twelve cases.</p>
+        <p class="reveal">The renderer sits on top of an open-source Claude-driven editor by Hassan Aboul Hasan (<a href="https://github.com/hassancs91/claude-youtube-editor" target="_blank" rel="noopener">hassancs91/claude-youtube-editor</a>). That spine is his work, not mine. What I built is the compiler on top of it: the batch format, the reel design, the claim guard, and the pipeline that turns a content brief into a week of scheduled ads.</p>
         <ul class="skills reveal" aria-label="Skills this project proves">
-          <li>agent tool-calling</li><li>MCP integration</li><li>programmatic media assembly</li><li>verification passes</li><li>workflow automation</li>
+          <li>Remotion</li><li>data-driven rendering</li><li>build-time validation gates</li><li>Node scripting</li><li>content pipeline automation</li>
         </ul>
         <p class="depth reveal"><span class="depth-tag">multi-week build</span></p>
-        <p class="honest reveal"><strong>What it actually took.</strong> The hard shift was stopping thinking of editing as a creative act and starting to think of it as an API. Once the edit is a set of operations an agent can call and a verifier can check, a whole content pipeline stops needing a human in a timeline. Naming the primitives well was most of the work.</p>
-        <p class="project-links reveal"><span class="muted">Private build.</span></p>
+        <p class="honest reveal"><strong>What it actually took.</strong> The build itself was a weekend. The judgement call was the guard: I was the only person who would ever see these reels before they went out, and I already knew I would eventually paste in a number that felt true and was not. Writing a check that blocks my own future self was worth more than any feature I could have added instead.</p>
+        <p class="project-links reveal"><span class="muted">Private build. Built on <a href="https://github.com/hassancs91/claude-youtube-editor" target="_blank" rel="noopener">hassancs91/claude-youtube-editor</a>.</span></p>
       </div>
     </article>
   </div>
