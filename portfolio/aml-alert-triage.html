@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AML Alert Triage - Alex Byun</title>
+<meta name="description" content="Ranks anti-money-laundering alerts so analysts see the real ones first, explains every score in plain English, and records every decision in a tamper-evident log.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<div class="glow-field" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+</div>
+
+<nav class="site-nav" id="site-nav">
+  <div class="container">
+    <a class="brand" href="../index.html#home">Alex Byun</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home">Home</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#process">Process</a></li>
+      <li><a class="active" href="../index.html#portfolio">Portfolio</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="detail-main">
+  <div class="container">
+    <a class="back-link" href="../index.html#portfolio">&larr; Back to portfolio</a>
+
+    <article class="project">
+      <p class="project-kicker reveal">AML Alert Triage</p>
+      <h1 class="reveal">Ninety percent of the queue is noise. This decides what to open first.</h1>
+      <p class="project-value reveal">Banks are required to watch every transaction for money laundering, and the rules that do it are deliberately broad, because missing a real case is a regulatory failure while a false alarm is only a cost. An analyst opens a queue where about nine alerts in a hundred are real and works it by hand. This re-orders that queue, explains every position in plain English, and writes each decision into a log that cannot be quietly edited.</p>
+      <figure class="project-visual reveal">
+        <div class="terminal" role="img" aria-label="Catch curve showing how much of the queue must be reviewed to find the real cases">
+          <div class="terminal-bar"><span></span><span></span><span></span><em>evaluate.py</em></div>
+<pre>held-out later period, customers never seen in training
+3,492 alerts    256 real    base rate 7.33%
+
+reviewed   alerts   real found   recall
+   1%          34       34       13.3%
+   5%         174      172       67.2%
+  <b>10%         349      244       95.3%</b>
+ 100%       3,492      256      100.0%
+
+PR-AUC   <b>0.9514</b>   vs 0.0708 random   vs 0.0574 sort-by-amount
+</pre>
+        </div>
+      </figure>
+      <div class="project-body">
+        <p class="reveal">The bottleneck in this problem is not detection. The rule engine already fires; the question is ordering, and whether that ordering can be justified to a regulator afterwards. So the system sits downstream of a seven-rule legacy engine rather than replacing it, builds forty-seven point-in-time features per alert, and ranks with gradient boosting. Working the top ten percent of the ranked queue reaches 95.3% of the real cases. The same ten percent picked at random reaches about ten. Every score comes back with a sentence an analyst can read: same rule, opposite conclusion, because the rule sees a country and the model sees a person behaving normally.</p>
+        <p class="reveal">The work I would rather talk about is the two leaks I found in my own results. Both made the numbers look better and neither crashed anything, which is exactly what makes that class of bug dangerous. The first was that the label was recoverable from a single column: only laundering ever touched a high-risk jurisdiction, so that rule posted a fake hundred percent precision and any model would have learned the giveaway instead of the behaviour. Fixing the generator so ordinary customers also send money abroad dropped rule precision to 6.07%, and a regression test now fails if any attribute value is more than 95% pure. It earned its keep immediately by catching the same class of bug a second time.</p>
+        <p class="reveal">The second was a feature reading the future. Alert co-occurrence used a window of plus or minus three days, and permutation importance showed it carrying 0.62 of a 0.83 score, because a real scheme trips more rules in the days that follow, so looking forward was close to reading the answer. Making it backward-only raised the score to 0.895. The honest version was also the better one, which is the most useful thing this project taught me. Accuracy is deliberately not the headline either: a model that flags nothing scores 92.67% on data this imbalanced, and there is a test asserting that such a do-nothing predictor fails the gate.</p>
+        <ul class="skills reveal" aria-label="Skills this project proves">
+          <li>gradient boosting</li><li>point-in-time feature engineering</li><li>temporal train/test splits</li><li>label-leakage testing</li><li>occlusion attribution</li><li>model explainability</li><li>hash-chained audit logging</li><li>synthetic data generation</li><li>Python</li>
+        </ul>
+        <p class="depth reveal"><span class="depth-tag">multi-week build</span></p>
+        <p class="honest reveal"><strong>What it actually took.</strong> Most of the elapsed time went on the data, not the model. The model trains in three seconds; the generator had to be rebuilt twice because the first two versions made the problem too easy in ways I could not see from the metrics, and both times the tell was a result that looked too good. About nine percent of the ordinary customers now do things that look guilty on purpose, a legitimate cash deposit just under a reporting threshold, a large sum in and straight back out for a house settlement, so the task stays a ranking problem rather than a threshold lookup. The README states what the system gets wrong before it states what it gets right, including the typology it handles worst and the fact that synthetic data cannot tell you how it would behave in production. All data is generated by the repository. No real customer or institutional data is used anywhere.</p>
+        <p class="project-links reveal"><a href="https://github.com/byun-alex/aml-alert-triage" target="_blank" rel="noopener">github.com/byun-alex/aml-alert-triage &rarr;</a></p>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p><a href="../index.html#portfolio">&larr; Back to portfolio</a></p>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>

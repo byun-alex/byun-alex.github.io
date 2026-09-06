@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cycle Bot - Alex Byun</title>
+<meta name="description" content="A crypto trading system built on market-cycle and Wyckoff theory, with the measurement harness that tells me which parts of it actually hold.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<div class="glow-field" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+</div>
+
+<nav class="site-nav" id="site-nav">
+  <div class="container">
+    <a class="brand" href="../index.html#home">Alex Byun</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home">Home</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#process">Process</a></li>
+      <li><a class="active" href="../index.html#portfolio">Portfolio</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="detail-main">
+  <div class="container">
+    <a class="back-link" href="../index.html#portfolio">&larr; Back to portfolio</a>
+
+    <article class="project">
+      <p class="project-kicker reveal">Cycle Bot</p>
+      <h1 class="reveal">A theory I believe in, held to evidence anyway.</h1>
+      <p class="project-value reveal">A crypto trading system built on market-cycle theory and Wyckoff-style accumulation and distribution: publicly studyable ideas about how markets move in repeating phases, which I learned from a creator who teaches them well and then read around on my own. I do believe in the theory. That is exactly why I built the measurement before the money, so I would find out which parts of it hold up and which parts I had only assumed.</p>
+      <figure class="project-visual reveal">
+        <div class="terminal" role="img" aria-label="Validation output showing the strategy failing its out-of-sample test">
+          <div class="terminal-bar"><span></span><span></span><span></span><em>validation - walk forward</em></div>
+<pre>WHAT HELD UP
+  confirmation signals     profit factor  <b>~2x</b> vs matched control
+  phase logic              reproducible, tested, 216 cases
+
+WHAT DID NOT
+  per-asset cycle length   <b>identical</b> for both assets, every setting
+  out of sample (asset B)  profit factor  <b>7.56 -&gt; 1.30</b>
+
+live trading               <b>GATED OFF</b>  (5 independent code paths)
+</pre>
+        </div>
+      </figure>
+      <div class="project-body">
+        <p class="reveal">Cycle theory says markets move through repeating phases rather than in a straight line, and Wyckoff describes how accumulation and distribution show up inside those phases. Both are decades old and widely taught, so the interesting engineering question is not whether the ideas exist, it is which specific version of them survives contact with real data. I turned the version I had learned into code: pivot detection, phase classification, and confirmation signals, each one a testable component rather than a single opaque rule.</p>
+        <p class="reveal">Then I built the harness that could tell me I was wrong. A matched control, the dumbest trend follower I could write, gave me something to beat, and the confirmation signals did roughly double it on profit factor, so that part of the theory earns its place. One specific timing parameter did not: the claim that different assets turn on measurably different cycle lengths did not reproduce, because my implementation returned the same length for both assets at every setting I tried. A walk-forward test on data the parameters had never seen showed the other weak spot, one asset falling from a profit factor of 7.56 in-sample to 1.30 out-of-sample, which is the signature of fitting the past rather than describing it. So live trading is disabled at five separate points in the code. Switching it on has to be a deliberate act with a reason, not a flag someone forgets.</p>
+        <p class="reveal">The most valuable thing I found was in the data, not the strategy. The exchange I intended to execute on prints occasional phantom lows: on one day it reported a low of around 8,200 dollars for an asset that other sources put near 62,000, while the closing prices from both sources agreed to within 0.05 percent. The cycle detector reads lows directly, so those prints would have silently defined turning points that never happened, and a resting stop order would have been filled by one. All cycle maths now runs on a separate data source, and resting stops are banned in favour of decisions made on closes. 216 tests cover the engine.</p>
+        <ul class="skills reveal" aria-label="Skills this project proves">
+          <li>Python</li><li>backtesting</li><li>walk-forward validation</li><li>data integrity checks</li><li>REST and WebSocket APIs</li><li>216 automated tests</li><li>separating a theory from its implementation</li>
+        </ul>
+        <p class="depth reveal"><span class="depth-tag">multi-week build</span></p>
+        <p class="honest reveal"><strong>What it actually took.</strong> The uncomfortable part was that I believe in this theory, so I was the worst possible person to test it. I had done the reading, taken the notes and built the scaffolding, and the honest move was to write the test that could embarrass my own conclusion. It embarrassed one parameter and vindicated another, which is a better outcome than either faith or dismissal would have given me. What I have now is a measurement harness, a control to compare against, a documented data trap, and a system that refuses to place a real order until the evidence says it should. Believing in an idea and verifying it are not in conflict. Verification is how the belief becomes usable.</p>
+        <p class="project-links reveal"><span class="case-note">Private build. The theory is public and widely taught; the implementation, parameters and test results are mine. Walkthrough on request.</span></p>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p><a href="../index.html#portfolio">&larr; Back to portfolio</a></p>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>

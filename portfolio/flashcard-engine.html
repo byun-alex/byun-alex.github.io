@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flashcard Engine - Alex Byun</title>
+<meta name="description" content="An offline spaced-repetition flashcard engine with an exam cap, so no card can hide past the day it is needed.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<div class="glow-field" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+</div>
+
+<nav class="site-nav" id="site-nav">
+  <div class="container">
+    <a class="brand" href="../index.html#home">Alex Byun</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#home">Home</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#process">Process</a></li>
+      <li><a class="active" href="../index.html#portfolio">Portfolio</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="detail-main">
+  <div class="container">
+    <a class="back-link" href="../index.html#portfolio">&larr; Back to portfolio</a>
+
+    <article class="project">
+      <p class="project-kicker reveal">Flashcard Engine</p>
+      <h1 class="reveal">Spaced repetition that knows when the exam is.</h1>
+      <p class="project-value reveal">A revision engine that runs as a single file on a phone, with no install, no account and no internet. It schedules cards the way spaced repetition normally does, except it will never push a card past the date it actually matters.</p>
+      <figure class="project-visual reveal">
+        <div class="terminal" role="img" aria-label="Scheduler output showing an interval being clamped by the exam cap">
+          <div class="terminal-bar"><span></span><span></span><span></span><em>scheduler</em></div>
+<pre>card    "what is a TLB miss vs a page fault"
+grade   easy   (3rd correct rep)
+
+plain SM-2 interval        <b>6 days</b>   -&gt; lands after the exam
+days until exam            4
+exam cap  (40% of remain)  <b>1.6 days</b>
+
+scheduled                  <b>+1.6 days</b>   seen 2 more times before it counts
+</pre>
+        </div>
+      </figure>
+      <div class="project-body">
+        <p class="reveal">Standard SM-2 assumes you have forever. Answer a card well three times and it disappears for a week, which is correct if you are learning a language and wrong if you have a hurdle exam on Friday, because the card you know today is the card you will have quietly lost by then. So every interval is clamped to a fraction of the time left before the exam. The effect is provable rather than vibes: with the cap in place, the schedule fits at least two more repetitions of every card into the runway that remains.</p>
+        <p class="reveal">The rest of the engine is built around the same constraint, which is that revision happens on a phone, in bed, often with no signal. Each deck is one self-contained HTML file: the cards are a plain data array, the engine is a template, and the build step is a script that joins them. Review and Cram are separate modes, a mastery panel shows which sections are actually weak, and the real lecture diagrams are cropped out of the source slides and sit under the cards that need them, captioned. Every card also carries an explain-it-like-I-know-nothing layer and an inline glossary, which is the part that made it useful to someone starting from zero rather than just a memory aid for someone who already understood.</p>
+        <p class="reveal">One subtle failure mode was worth designing around. Saved progress lives in the browser, and if card state were keyed by position, adding or reordering a single card would silently reassign everyone's schedule to the wrong questions. State is keyed by a hash of the question text instead, so the deck can be edited without scrambling what the learner has already earned. Verification ran the real engine, pulled out of the built file rather than a copy of it, against a DOM stub: 30 assertions on the scheduling maths, plus headless screenshots of every interface state.</p>
+        <ul class="skills reveal" aria-label="Skills this project proves">
+          <li>SM-2 spaced repetition</li><li>constraint-aware scheduling</li><li>template and data-file build pipeline</li><li>vanilla JS</li><li>localStorage state design</li><li>headless-browser verification</li><li>offline-first</li>
+        </ul>
+        <p class="depth reveal"><span class="depth-tag">weekend hack</span></p>
+        <p class="honest reveal"><strong>What it actually took.</strong> Version one was a single hand-written file, which was fine until I wanted a second deck and found myself copying an engine by hand. The rebuild into template plus data is the boring decision that made everything after it cheap: a new subject is now a data file. The exam cap came from noticing my own tool was about to do the wrong thing to me, three days before a hurdle exam. That is the whole lesson: an algorithm that is correct in general can still be wrong for the deadline you are actually standing in front of.</p>
+        <p class="project-links reveal"><span class="case-note">Private build, used for my own coursework. Walkthrough on request.</span></p>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p><a href="../index.html#portfolio">&larr; Back to portfolio</a></p>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>

@@ -4,7 +4,7 @@ This file is the handoff manual for Alex's portfolio site (byun-alex.github.io).
 
 ## What this site is
 
-Alex's personal-brand site first, recruiter-ready second. It shows his projects like products and tells the honest story of building them. The audience is (a) anyone Alex wants to impress with what he builds, and (b) hiring managers for Technical Support Engineer and junior technical roles who should land, click around, and think "competent, ships things, easy to contact."
+Alex's personal-brand site first, recruiter-ready second. It shows his projects like products and tells the honest story of building them. The audience is (a) anyone Alex wants to impress with what he builds, and (b) hiring managers for graduate and junior roles in AI, data and software who should land, click around, and think "competent, ships things, easy to contact." (Positioning changed 2026-08-29 from Technical Support Engineer to AI/data/software graduate roles. He is a final-year student finishing end of 2026, so the site says "final-year, looking for graduate work"; never write that he has already graduated, and never put a graduation date on the site without asking him.)
 
 ## Architecture (v2)
 
@@ -38,7 +38,11 @@ Alex's personal-brand site first, recruiter-ready second. It shows his projects 
 ├── Alex-Byun-Resume.pdf  the downloadable resume (master lives in Alex's vault)
 ├── MAINTAINING.md        this file
 ├── portfolio/            one page per project (grid teaser links here)
-│   ├── trading-scanner.html      (private build, no repo link)
+│   ├── aml-alert-triage.html      (public repo)
+│   ├── trading-scanner.html      (private build; links the public market-data-scanner repo)
+│   ├── cycle-bot.html            (private build, no repo link; theory is public cycle/Wyckoff material, implementation is his)
+│   ├── flashcard-engine.html     (private build, no repo link)
+│   ├── todo-viz.html
 │   ├── alexos.html
 │   ├── braindock.html            (commercial build, no live link on-site yet)
 │   ├── overnight-agent.html
@@ -53,6 +57,7 @@ Alex's personal-brand site first, recruiter-ready second. It shows his projects 
 │   ├── job-ad-extractor.html
 │   ├── log-triage.html
 │   └── murmur.html
+(20 project pages as of 2026-09-06)
 └── assets/
     ├── brain-dashboard.png
     └── life-planner.png

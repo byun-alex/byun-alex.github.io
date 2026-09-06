@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alex Byun - I build with AI</title>
-<meta name="description" content="Final-year CS student in Sydney building AI-augmented tools and agentic workflows. Everything here I built and use daily.">
+<title>Alex Byun - AI, data and software</title>
+<meta name="description" content="Final-year Computer Science student in Sydney, looking for graduate work in AI, data and software. Twenty builds: agents, data pipelines and tools I built and use daily.">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -39,8 +39,8 @@
   <header class="hero">
     <div class="container">
       <p class="hero-kicker reveal">Alex Byun · Sydney</p>
-      <h1 class="reveal">Final-year CS student pursuing the potential of AI.</h1>
-      <p class="hero-sub reveal">I build AI-augmented tools and agentic workflows, then use them every day. Some of it ships. All of it is real.</p>
+      <h1 class="reveal">Final-year CS student, looking for graduate work in AI, data and software.</h1>
+      <p class="hero-sub reveal">I build AI agents, data pipelines and the tooling around them, then run them every day. Some of it ships. All of it is real.</p>
       <nav class="hero-links reveal" aria-label="Contact">
         <a class="btn btn-primary" href="mailto:kimjay2288@gmail.com">Email me</a>
         <a class="btn" href="https://github.com/byun-alex" target="_blank" rel="noopener">GitHub</a>
@@ -53,7 +53,7 @@
     <div class="route-cards">
       <a class="card route-card reveal" href="#portfolio">
         <h3>Portfolio</h3>
-        <p>Seven builds and continuing, presented properly. A compact grid; one click gets you the full story of each.</p>
+        <p>Twenty builds and counting, presented properly. A compact grid; one click gets you the full story of each.</p>
         <span class="go">See the work &rarr;</span>
       </a>
       <a class="card route-card reveal" href="#process">
@@ -63,7 +63,7 @@
       </a>
       <a class="card route-card reveal" href="#about">
         <h3>About</h3>
-        <p>Who I am, what changed a few weeks ago, and the roles I am looking for.</p>
+        <p>Who I am, how I started shipping, and the graduate roles I am looking for.</p>
         <span class="go">The short story &rarr;</span>
       </a>
       <a class="card route-card reveal" href="#contact">
@@ -83,8 +83,8 @@
       <h2 class="reveal">The short story.</h2>
     </div>
     <div class="about-body">
-      <p class="reveal">I am Alex, a final-year Computer Science student in Sydney. A few weeks ago I noticed I was a person with strong ideas and nothing shipped, so I changed how I work: I build with AI as a daily collaborator, in public, with dates on everything. The projects on this site are the result and the pace is the point.</p>
-      <p class="reveal">I am looking for Technical Support Engineer and junior technical roles where the job is understanding a system deeply enough to fix it and explaining it clearly enough that the customer relaxes. The systems on this site are my evidence: I document obsessively, I verify before I call something done, and I like the unglamorous reliability work most people skip.</p>
+      <p class="reveal">I am Alex, a final-year Computer Science student in Sydney, finishing at the end of 2026. Last year I noticed I was a person with strong ideas and nothing shipped, so I changed how I work: I build with AI as a daily collaborator, in public, with dates on everything. The projects on this site are the result and the pace is the point. I study part-time and schedule classes outside working hours, so I am available for full-time work now.</p>
+      <p class="reveal">I am looking for graduate and junior roles in AI engineering, data, and software: building the systems around a model, moving data from a messy source into something a program can trust, and making the whole thing hold up in production. The projects on this site are my evidence. I document obsessively, I verify before I call something done, and I am comfortable saying an approach failed when the numbers say it failed. I have also spent years in frontline retail and hospitality, so explaining a technical thing to a person who does not want a lecture is familiar work.</p>
     </div>
     <div class="about-actions reveal">
       <a class="btn btn-primary" href="mailto:kimjay2288@gmail.com">kimjay2288@gmail.com</a>
@@ -125,17 +125,51 @@
       <details class="log-month reveal" open>
         <summary>
           <span class="log-head">
-            <span class="log-when">August 2026</span>
-            <span class="log-count">6 entries</span>
+            <span class="log-when">September 2026</span>
+            <span class="log-count">4 entries</span>
           </span>
           <span class="log-peek">
-            <span>An agency lane: a live business site audited and replaced with a 5-page demo in a day</span>
-            <span>The avatar content pipeline written up and open-sourced as a case study repo</span>
-            <span>Braindock got a carousel render pipeline with an automated claim guard</span>
+            <span>A goals app that derives every number from a ledger, so the scoreboard cannot drift from what I actually did</span>
+            <span>A knowledge library that pushes an update into the work instead of waiting to be re-read</span>
+            <span>Root-caused a four times cost overrun the API's own preflight had been reporting as correct</span>
           </span>
           <span class="log-more"></span>
         </summary>
         <ol class="timeline">
+          <li><time>6 Sep 2026</time><span>Built a local app that turns my own goals into an RPG with focus timers, XP and ranks. The point was not the timer: the accountability system it feeds could only ever ask what I did and believe the answer, so areas read "last moved: never" while real work went unrecorded. Every number is derived from an append-only session ledger rather than stored, so the scoreboard cannot drift from what actually happened, and it reads the source-of-truth file read-only so a new build cannot corrupt it. Phone app-blocking was researched and refused as specified, because it needs a native entitlement a web page cannot have. A CSS cascade bug had been live since the first version, a class-level display rule silently overriding the browser's hidden default, which exposed that my tests covered the API exhaustively and the rendering not at all. UI is now verified by headless screenshot.</span></li>
+          <li><time>6 Sep 2026</time><span>Built a cross-project knowledge library where the hard part was the direction of the link. A correct, current, linked document had already sat unread for ten weeks while four accounts were wired to publish against its advice, so notes now carry a table naming every file that depends on them, and ingesting a source walks that table and shows me what the new material actually beats before anything is edited.</span></li>
+          <li><time>5 Sep 2026</time><span>Root-caused a four times cost overrun and a silent content bug in the video pipeline. The spend looked correct at every checkpoint, because the API's own cost preflight returned a figure that did not match what was actually billed, so the only reliable measurement was the balance before and after.</span></li>
+          <li><time>4 Sep 2026</time><span>Fired the Instagram publish chain live for the first time, then found the three platform limits that make full auto-publish wrong for this account and replaced it with a phone hand-off. Also shipped a short-clip layer on the video pipeline: the channel's whole look is a wide panoramic sky that a naive vertical crop destroys, so the clips are composed rather than cropped, and they cost nothing to produce.</span></li>
+        </ol>
+      </details>
+
+      <details class="log-month reveal">
+        <summary>
+          <span class="log-head">
+            <span class="log-when">August 2026</span>
+            <span class="log-count">19 entries</span>
+          </span>
+          <span class="log-peek">
+            <span>Shipped an AML alert-ranking system, and caught two leaks that were flattering my own results</span>
+            <span>Turned market-cycle and Wyckoff theory into testable code, then measured which half of it holds</span>
+            <span>Published the data-engineering half of a private scanner as its own open-source repo</span>
+          </span>
+          <span class="log-more"></span>
+        </summary>
+        <ol class="timeline">
+          <li><time>31 Aug 2026</time><span>Built a local-first study PWA end to end across eight slices: React, TypeScript, Vite and Dexie over IndexedDB, bring your own API key, works offline. 202 tests with no test framework, written as plain assertions so the suite has no dependency of its own.</span></li>
+          <li><time>30 Aug 2026</time><span>An idea-to-project pipeline went live: a texted idea is researched, gated by an approval press on my phone, and only then given a folder and a machine-checkable job spec. Its first promoted output was a real fix for the capture bot. 98 tests.</span></li>
+          <li><time>30 Aug 2026</time><span>De-coursed the flashcard engine so any subject can use it. Its course-specificity was structural rather than cosmetic, a hardcoded dictionary the whole build step read from, and I proved the rebuild on a deck from a subject I have never studied.</span></li>
+          <li><time>29 Aug 2026</time><span>aml-alert-triage went public: it ranks anti-money-laundering alerts so the top ten percent of the queue reaches 95.3% of real cases, explains every score in plain English, and hash-chains every decision. The work worth telling is that I caught myself cheating twice, and both leaks made the results look better. The label was recoverable from one column, and a feature was reading the future. Removing the look-ahead raised the score from 0.827 to 0.895, so the honest version was also the better one. Accuracy is deliberately not reported, because a model that flags nothing scores 92.67% here.</span></li>
+          <li><time>29 Aug 2026</time><span>The trading bot now records what it did and runs itself. The journal had to match the diary the strategy's own community uses, which was not in the course at all and turned up as a spreadsheet link in a forum thread, so the real schema could be mirrored rather than invented. Backfilling a real round trip exposed the honest limit: the stop I intended at the time was never written down, so those rows carry no result multiple, because a guessed stop would make every number on the dashboard fiction. The bug worth telling is a function called one line above the constant it depended on, which killed the whole script while the page still rendered, so it read as missing data rather than a crash. A syntax check passed it. A screenshot found it in four seconds. 247 tests.</span></li>
+          <li><time>24 Aug 2026</time><span>Built a crypto trading system on market-cycle and Wyckoff theory, with a local paper-trading terminal, then spent most of the work measuring which parts of the theory actually hold. The confirmation signals beat a matched control by roughly 2x on profit factor. One timing parameter did not reproduce at all, and a walk-forward showed one asset falling from 7.56 to 1.30 out of sample. I also caught a data trap that would have poisoned every signal, because the venue I intended to trade on prints phantom lows that the pivot detector reads directly. Live trading is gated off in five separate code paths until the evidence says otherwise. 216 tests.</span></li>
+          <li><time>17 Aug 2026</time><span>AlexOS v1.3: agents can hold a conversation now. Every run's stream already carried a session id and the server was throwing it away, so an agent forgot you the moment it answered. Follow-ups resume that exact session, and the expensive multi-agent threads persist to disk so a restart no longer destroys them. 21 of 21 end-to-end, including an agent recalling a token from an earlier turn.</span></li>
+          <li><time>17 Aug 2026</time><span>Caught a misattribution on this site: a project page described an open-source video editor as my build. The repo history says one commit, by its actual author, and none by me. I had already credited him elsewhere three weeks earlier, but nothing was checking the site, so the page kept serving the claim. Rewritten around the part that is genuinely mine, upstream credited, and the rule written into my job-hunt notes so a future me cannot regress it. An unearned line is worse than a missing one.</span></li>
+          <li><time>17 Aug 2026</time><span>braindock.co went live on its real domain. The bio link was not returning a 404, it was serving the registrar's parking page, which reads as abandoned. Diagnosed by DNS lookup, moved the hosting, and verified the whole path end to end including SSL.</span></li>
+          <li><time>17 Aug 2026</time><span>Flashcard engine v2: spaced repetition with an exam cap. Plain SM-2 pushes a well-known card days out, which with an exam on Friday means it is never seen again before it counts, so every interval is clamped to a fraction of the time remaining. Rebuilt from one hand-written file into a template and data pipeline, with the real lecture diagrams cropped in under the cards that need them.</span></li>
+          <li><time>16 Aug 2026</time><span>todo-viz open-sourced: a browser checklist that writes every tick straight back into the Markdown file, with atomic writes and a conflict guard so a concurrent edit is rejected rather than clobbered.</span></li>
+          <li><time>14 Aug 2026</time><span>market-data-scanner published as a public repo: the data-engineering half of a private scanner, carved out on its own. The hard part was proving nothing leaked, because the strategy in the private version is someone else's intellectual property. Signal logic, config and theory excluded, every reference scrubbed from the surviving comments, re-scanned to zero before pushing. What is public is real engineering: async exchange adapters, one candle model, a rolling store that rejects still-forming, duplicate and out-of-order candles, 49 tests.</span></li>
+          <li><time>14 Aug 2026</time><span>Built two offline flashcard apps from raw course notes, each with an explain-it-like-I-know-nothing layer written for every card. Self-contained, no build step, works with no internet once opened, and reskins to any subject by swapping one data array.</span></li>
           <li><time>10 Aug 2026</time><span>Web agency lane opened: audited a live business site (27 concrete issues, no working contact form), then built a 5-page replacement demo and the agency's own site the same day.</span></li>
           <li><time>10 Aug 2026</time><span>Braindock carousels built on a new render pipeline, with a claim guard that blocks any statement I cannot back with a real number.</span></li>
           <li><time>7 Aug 2026</time><span>ai-avatar-pipeline open-sourced: the whole avatar content pipeline written up as a public case study, with third-party parts credited rather than claimed.</span></li>
@@ -241,13 +275,25 @@
     <div class="view-head">
       <p class="kicker reveal">Portfolio</p>
       <h2 class="reveal">Things I built.</h2>
-      <p class="section-sub reveal">Proof over credentials. Each of these is public code or a working system on my machine. Click through for the full story, including an honest note on what it took to build.</p>
+      <p class="section-sub reveal">Proof over credentials. Each of these is public code or a working system on my machine, and most of them run daily. Click through for the full story, including an honest note on what it took to build.</p>
     </div>
     <div class="pgrid">
       <a class="card pcard reveal" href="portfolio/trading-scanner.html">
         <p class="pcard-kicker">Trading Scanner</p>
         <h3>A scanner that keeps the strategy and the data apart.</h3>
         <p>Thousands of symbols, multiple timeframes, breakout signals in real time. Ports-and-adapters core, 140+ tests, keyless data feed. The data engine is open source; the strategy is not.</p>
+        <div class="pcard-foot"><span class="depth-tag">multi-week build</span><span class="go">Full story &rarr;</span></div>
+      </a>
+      <a class="card pcard reveal" href="portfolio/cycle-bot.html">
+        <p class="pcard-kicker">Cycle Bot</p>
+        <h3>A theory I believe in, held to evidence anyway.</h3>
+        <p>Market-cycle and Wyckoff theory turned into testable components, then measured against a control and a walk-forward, so I know which parts hold and which I had only assumed.</p>
+        <div class="pcard-foot"><span class="depth-tag">multi-week build</span><span class="go">Full story &rarr;</span></div>
+      </a>
+      <a class="card pcard reveal" href="portfolio/aml-alert-triage.html">
+        <p class="pcard-kicker">AML Alert Triage</p>
+        <h3>Ninety percent of the queue is noise. This decides what to open first.</h3>
+        <p>Re-ranks a compliance alert queue so the top 10% reaches 95.3% of real cases, explains every score in plain English, and hash-chains every decision. I found two leaks flattering my own results, and fixing the second one raised the score.</p>
         <div class="pcard-foot"><span class="depth-tag">multi-week build</span><span class="go">Full story &rarr;</span></div>
       </a>
       <a class="card pcard reveal" href="portfolio/alexos.html">
@@ -340,6 +386,12 @@
         <p>Tick a box in the browser and the edit lands in your Markdown to-do file, safely, with atomic writes and a stale-edit conflict guard.</p>
         <div class="pcard-foot"><span class="depth-tag">weekend hack</span><span class="go">Full story &rarr;</span></div>
       </a>
+      <a class="card pcard reveal" href="portfolio/flashcard-engine.html">
+        <p class="pcard-kicker">Flashcard Engine</p>
+        <h3>Spaced repetition that knows when the exam is.</h3>
+        <p>Offline, one file, no install. Every interval is clamped to the time left before the exam, so a well-known card cannot hide past the day it counts.</p>
+        <div class="pcard-foot"><span class="depth-tag">weekend hack</span><span class="go">Full story &rarr;</span></div>
+      </a>
       <a class="card pcard reveal" href="portfolio/murmur.html">
         <p class="pcard-kicker">Murmur</p>
         <h3>Dictation that never leaves your machine.</h3>
@@ -356,7 +408,7 @@
     <div class="view-head">
       <p class="kicker reveal">Contact</p>
       <h2 class="reveal">One email, no forms.</h2>
-      <p class="contact-lede reveal">If you are hiring for Technical Support Engineer or junior technical roles in Sydney, or you want to talk about anything on this site, I read everything.</p>
+      <p class="contact-lede reveal">If you are hiring for a graduate or junior role in AI, data or software in Sydney, or you want to talk about anything on this site, I read everything.</p>
     </div>
     <a class="contact-email reveal" href="mailto:kimjay2288@gmail.com">kimjay2288@gmail.com</a>
     <div class="contact-actions reveal">
