@@ -126,7 +126,7 @@
         <summary>
           <span class="log-head">
             <span class="log-when">September 2026</span>
-            <span class="log-count">9 entries</span>
+            <span class="log-count">10 entries</span>
           </span>
           <span class="log-peek">
             <span>Took a paid product's site from a dead end to a buyable store, and proved the advertised price is the charged price</span>
@@ -136,6 +136,7 @@
           <span class="log-more"></span>
         </summary>
         <ol class="timeline">
+          <li><time>23 Sep 2026</time><span>Upgraded the avatar content pipeline into a repeatable production workflow: a reference library that turns a viral reel into a scene-by-scene rebuild spec, scene counts measured with ffmpeg to pick the generation method, and a ledger that marks each reference used so nothing is proposed twice. First batch: 24 references in, 11 finished reels out, in one session. The bug worth telling is a generation call that reported success with the character's identity silently dropped; the fix is reading back the parameters the API actually used, because an accepted call is not an applied one.</span></li>
           <li><time>23 Sep 2026</time><span>Gave my Telegram capture bot an honest receipt. Seventeen links went in across two messages and thirteen arrived, with every note from the second message missing. The Worker stores the raw payload verbatim and the first message's prose arrived intact, which put the loss on the sending side, before the server ever saw it. The cause is still unproven, so I shipped detection rather than a guessed repair: the reply now reports how many links and note lines it actually stored, so a short message is visibly short at send time instead of days later.</span></li>
           <li><time>14 Sep 2026</time><span>Built a harvester for public exam marking feedback across 12 subjects and 7 years. The marker commentary is no longer a PDF for most subjects but an accordion rendered on each year's page, and the subject index only exists in JavaScript, so page addresses were probed by request and the accordion flattened to Markdown with the standard library alone. Syllabus documents span three generations of URL scheme, all handled from one map, and the whole 256 MB set re-fetches in one command.</span></li>
           <li><time>10 Sep 2026</time><span>Fixed an image-to-video model animating the one thing that had to stay still, at no cost. The model rotated an observatory dome in an ambient loop on two renders in a row, which would have snapped back roughly 1,540 times across a three-hour video. The standing rule, leave the static object unmentioned so there is nothing to animate, had been followed and did not hold: the model animates what an object does in the real world, and domes rotate. Instead of a third paid render I composited the original still back over the building through a feathered mask in one ffmpeg pass. Motion in the dome dropped from 11.25 to 2.49 while the sky stayed at 10.44, checked frame by frame.</span></li>
